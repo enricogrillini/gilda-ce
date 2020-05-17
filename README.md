@@ -4,7 +4,7 @@
 
 Gilda rappresenta l'infrastruttura base per la realizzazione di intranet gestionali.
 
-- http://localhost:8082/gilda-ce/swagger-ui/
+- http://localhost:8082/swagger-ui.html#/
 
 # maven sloth plugin
 
