@@ -1,0 +1,497 @@
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+        "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+ <tlib-version>1.0</tlib-version>
+ <jsp-version>1.2</jsp-version>
+ <short-name>form</short-name>
+ <uri>formTags</uri>
+ <display-name>form</display-name>
+ <description></description>
+
+ <!-- Control -->
+ <tag>
+  <name>control</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.field.ControlTag</tag-class>
+  <body-content>empty</body-content>
+  <description>Scrive un controllo</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>viewModality</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>style</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>classname</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- Control -->
+ <tag>
+  <name>text</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.field.TextTag</tag-class>
+  <body-content>empty</body-content>
+  <description>Scrive il valore di un controllo</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- Control -->
+ <tag>
+  <name>textmd</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.field.TextMdTag</tag-class>
+  <body-content>empty</body-content>
+  <description>Scrive il valore di un controllo</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- Label -->
+ <tag>
+  <name>label</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.field.LabelTag</tag-class>
+  <body-content>empty</body-content>
+  <description>Scrive un controllo</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>style</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>classname</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- LblControl -->
+ <tag>
+  <name>lblControl</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.field.LblControlTag</tag-class>
+  <body-content>empty</body-content>
+  <description>Scrive un controllo con etichetta</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>viewModality</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>style</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>classname</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+
+  <attribute>
+   <name>controlWidth</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>controlStyle</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>controlClassname</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+
+  <attribute>
+   <name>labelWidth</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>labelStyle</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>labelClassname</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- Fields -->
+ <tag>
+  <name>fields</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.field.FieldsTag</tag-class>
+  <body-content>empty</body-content>
+  <description>Scrive una Fields group</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- Grid -->
+ <tag>
+  <name>grid</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.grid.GridTag</tag-class>
+  <body-content>empty</body-content>
+  <description>Scrive una griglia</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>detailName</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>style</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>classname</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- SimpleGrid -->
+ <tag>
+  <name>simpleGrid</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.grid.SimpleGridTag</tag-class>
+  <body-content>empty</body-content>
+  <description>Scrive una griglia</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>detailName</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- RadioGridTag -->
+ <tag>
+  <name>radioGrid</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.grid.RadioGridTag</tag-class>
+  <body-content>empty</body-content>
+  <description>Scrive radio grid su due livelli</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>detailName</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>style</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>classname</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- List -->
+ <tag>
+  <name>list</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.list.ListTag</tag-class>
+  <body-content>empty</body-content>
+  <description>Scrive una lista</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- Rollup -->
+ <tag>
+  <name>rollup</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.rollup.RollupTag</tag-class>
+  <body-content>empty</body-content>
+  <description>Scrive una Rollup</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- Rollup -->
+ <tag>
+  <name>rollup2</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.rollup.Rollup2Tag</tag-class>
+  <body-content>empty</body-content>
+  <description>Scrive una Rollup</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- searchBar -->
+ <tag>
+  <name>searchBar</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.toolbar.SearchBarTag</tag-class>
+  <body-content>JSP</body-content>
+  <description>Scrive il container per i filtri</description>
+  <attribute>
+   <name>additionalButtons</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- editablePageBar -->
+ <tag>
+  <name>editablePageBar</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.toolbar.EditablePageBarTag</tag-class>
+  <body-content>JSP</body-content>
+  <description>Scrive una tool bar per l'editing in una form base</description>
+  <example />
+ </tag>
+
+ <!-- simpleGridBar -->
+ <tag>
+  <name>simpleGridBar</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.toolbar.SimpleGridBarTag</tag-class>
+  <body-content>JSP</body-content>
+  <description>Scrive una tool bar per la semplice navigazione di una tabella</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>navigation</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+   <type>java.lang.Boolean</type>
+  </attribute>
+  <attribute>
+   <name>excel</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+   <type>java.lang.Boolean</type>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- editableGridBar -->
+ <tag>
+  <name>editableGridBar</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.toolbar.EditableGridBarTag</tag-class>
+  <body-content>JSP</body-content>
+  <description>Scrive una tool bar per l'editing in una Grid</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- gridBar -->
+ <tag>
+  <name>gridBar</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.toolbar.GridBarTag</tag-class>
+  <body-content>JSP</body-content>
+  <description>Scrive una tool bar per la gestione di un elenco non editabile</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- masterDetailBar -->
+ <tag>
+  <name>masterDetailBar</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.toolbar.MasterDetailBarTag</tag-class>
+  <body-content>JSP</body-content>
+  <description>Scrive una tool bar per la gestione di un master detail base</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- editableMasterDetailBar -->
+ <tag>
+  <name>editableMasterDetailBar</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.toolbar.EditableMasterDetailBarTag</tag-class>
+  <body-content>JSP</body-content>
+  <description>Scrive una tool bar per la gestione di un master detail editabile</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- subMasterDetailBar -->
+ <tag>
+  <name>subMasterDetailBar</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.toolbar.SubMasterDetailBarTag</tag-class>
+  <body-content>JSP</body-content>
+  <description>Scrive una tool bar per la gestione di un sub detail</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- chartCanvas -->
+ <tag>
+  <name>chartCanvas</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.chart.ChartCanvasTag</tag-class>
+  <body-content>empty</body-content>
+  <description>Scrive la canvas di un grafico</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- chartScript -->
+ <tag>
+  <name>chartScript</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.chart.ChartScriptTag</tag-class>
+  <body-content>empty</body-content>
+  <description>Scrive lo script di un grafico</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+
+ <!-- TabSheet -->
+ <tag>
+  <name>tabSheet</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.tabsheet.TabSheetTag</tag-class>
+  <body-content>JSP</body-content>
+  <description>Gestisce la tool bar per la gestione dei Tab</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- Tab -->
+ <tag>
+  <name>tab</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.tabsheet.TabTag</tag-class>
+  <body-content>JSP</body-content>
+  <description>Gestisce un Tab</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- Skipper -->
+ <tag>
+  <name>skipper</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.skipper.SkipperTag</tag-class>
+  <body-content>JSP</body-content>
+  <description>Gestisce un Skipper</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- SimpleCard -->
+ <tag>
+  <name>simpleCard</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.card.SimpleCardTag</tag-class>
+  <body-content>JSP</body-content>
+  <description>Scrive una Card base</description>
+ </tag>
+
+ <!-- FieldCard -->
+ <tag>
+  <name>fieldCard</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.card.FieldCardTag</tag-class>
+  <body-content>JSP</body-content>
+  <description>Scrive una Field Card base</description>
+  <attribute>
+   <name>name</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+ </tag>
+
+</taglib>

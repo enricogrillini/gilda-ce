@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DbToolProject xmlns="http://www.eg.it/DbSchema">
+    <Connection DbType="ORACLE" DriverName="oracle.jdbc.driver.OracleDriver" JdbcUrl="jdbc:oracle:thin:@localhost:1521:XE" User="gildace" Password="gildace" Owner="gildace" Name="defaultDb"/>
+    <DataBase>
+        <Tables>
+            <Table Tablespace="USERS" Initial="65536.0" Temporary="false" Name="Aforismi">
+                <Columns>
+                    <Column PrimaryKey="true" Nullable="false" Type="NUMBER(38,0)" Position="0" DataLength="22" Name="Idaforisma"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="VARCHAR2(1000)" Position="1" DataLength="1000" Name="Aforisma"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="VARCHAR2(100)" Position="2" DataLength="100" Name="Autore"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="DATE" Position="3" DataLength="7" Name="Dataultimapublicazione"/>
+                </Columns>
+                <Indexes/>
+                <Constraints>
+                    <Constraint Type="PrimaryKey" Generated="false" Name="AFORISMI_PK">
+                        <Columns>
+                            <ConstraintColumn Name="IDAFORISMA"/>
+                        </Columns>
+                    </Constraint>
+                </Constraints>
+                <Triggers/>
+                <ForeignKeyReferences/>
+                <Grants/>
+                <Partitions/>
+                <Constants/>
+            </Table>
+            <Table Tablespace="USERS" Initial="65536.0" Temporary="false" Name="Sec_Dec_Funzioni">
+                <Columns>
+                    <Column PrimaryKey="true" Nullable="false" Type="VARCHAR2(100)" Position="0" DataLength="100" Name="Codfunzione"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="VARCHAR2(20)" Position="1" DataLength="20" Name="Descrizionebreve"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="VARCHAR2(100)" Position="2" DataLength="100" Name="Descrizionelunga"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="NUMBER(38,0)" Position="3" DataLength="22" Name="Posizione"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="VARCHAR2(1)" Position="4" DataLength="1" Name="Flagvalido"/>
+                </Columns>
+                <Indexes/>
+                <Constraints>
+                    <Constraint Type="PrimaryKey" Generated="false" Name="SEC_DEC_FUNZIONI_PK">
+                        <Columns>
+                            <ConstraintColumn Name="CODFUNZIONE"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;DESCRIZIONEBREVE&quot; IS NOT NULL" Generated="true" Name="SYS_C009595">
+                        <Columns>
+                            <ConstraintColumn Name="DESCRIZIONEBREVE"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;DESCRIZIONELUNGA&quot; IS NOT NULL" Generated="true" Name="SYS_C009596">
+                        <Columns>
+                            <ConstraintColumn Name="DESCRIZIONELUNGA"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;POSIZIONE&quot; IS NOT NULL" Generated="true" Name="SYS_C009597">
+                        <Columns>
+                            <ConstraintColumn Name="POSIZIONE"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;FLAGVALIDO&quot; IS NOT NULL" Generated="true" Name="SYS_C009598">
+                        <Columns>
+                            <ConstraintColumn Name="FLAGVALIDO"/>
+                        </Columns>
+                    </Constraint>
+                </Constraints>
+                <Triggers/>
+                <ForeignKeyReferences>
+                    <ForeignKeyReference TableName="Sec_Funzioniruoli"/>
+                </ForeignKeyReferences>
+                <Grants/>
+                <Partitions/>
+                <Constants>
+                    <Constant Value="DECODIFICHE" Name="DECODIFICHE"/>
+                    <Constant Value="HRMSADMIN" Name="HRMSADMIN"/>
+                    <Constant Value="LOGGED" Name="LOGGED"/>
+                    <Constant Value="SYSADMIN" Name="SYSADMIN"/>
+                </Constants>
+            </Table>
+            <Table Tablespace="USERS" Initial="65536.0" Temporary="false" Name="Sec_Dec_Menu">
+                <Columns>
+                    <Column PrimaryKey="true" Nullable="false" Type="VARCHAR2(100)" Position="0" DataLength="100" Name="Codmenu"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="VARCHAR2(20)" Position="1" DataLength="20" Name="Descrizionebreve"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="VARCHAR2(100)" Position="2" DataLength="100" Name="Descrizionelunga"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="NUMBER(38,0)" Position="3" DataLength="22" Name="Posizione"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="VARCHAR2(1)" Position="4" DataLength="1" Name="Flagvalido"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="VARCHAR2(10)" Position="5" DataLength="10" Name="Codtipovoce"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="NUMBER(38,0)" Position="6" DataLength="22" Name="Livello"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="VARCHAR2(100)" Position="7" DataLength="100" Name="Imghtml"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="VARCHAR2(200)" Position="8" DataLength="200" Name="Link"/>
+                </Columns>
+                <Indexes/>
+                <Constraints>
+                    <Constraint Type="PrimaryKey" Generated="false" Name="SEC_DEC_MENU_PK">
+                        <Columns>
+                            <ConstraintColumn Name="CODMENU"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="ForeignKey" Generated="false" Table="SEC_DEC_TIPIVOCE" Name="SEC_MENU_FK1">
+                        <Columns>
+                            <ConstraintColumn Name="CODTIPOVOCE"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="flagvalido in ('S', 'N')" Generated="false" Name="SEC_DEC_MENU_C1">
+                        <Columns>
+                            <ConstraintColumn Name="FLAGVALIDO"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="Livello in (1, 2)" Generated="false" Name="SEC_DEC_MENU_C2">
+                        <Columns>
+                            <ConstraintColumn Name="LIVELLO"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;DESCRIZIONEBREVE&quot; IS NOT NULL" Generated="true" Name="SYS_C009589">
+                        <Columns>
+                            <ConstraintColumn Name="DESCRIZIONEBREVE"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;DESCRIZIONELUNGA&quot; IS NOT NULL" Generated="true" Name="SYS_C009590">
+                        <Columns>
+                            <ConstraintColumn Name="DESCRIZIONELUNGA"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;POSIZIONE&quot; IS NOT NULL" Generated="true" Name="SYS_C009591">
+                        <Columns>
+                            <ConstraintColumn Name="POSIZIONE"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;FLAGVALIDO&quot; IS NOT NULL" Generated="true" Name="SYS_C009592">
+                        <Columns>
+                            <ConstraintColumn Name="FLAGVALIDO"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;CODTIPOVOCE&quot; IS NOT NULL" Generated="true" Name="SYS_C009593">
+                        <Columns>
+                            <ConstraintColumn Name="CODTIPOVOCE"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;LIVELLO&quot; IS NOT NULL" Generated="true" Name="SYS_C009594">
+                        <Columns>
+                            <ConstraintColumn Name="LIVELLO"/>
+                        </Columns>
+                    </Constraint>
+                </Constraints>
+                <Triggers/>
+                <ForeignKeyReferences>
+                    <ForeignKeyReference TableName="Sec_Menuruoli"/>
+                </ForeignKeyReferences>
+                <Grants/>
+                <Partitions/>
+                <Constants>
+                    <Constant Value="HOME" Name="HOME"/>
+                    <Constant Value="SEP_SYSADMIN" Name="SEPARATORE"/>
+                    <Constant Value="SEZIONE_SYSADMIN" Name="PIATTAFORMA"/>
+                    <Constant Value="SICUREZZA" Name="SICUREZZA"/>
+                    <Constant Value="SICUREZZA_FUNZIONI" Name="FUNZIONI"/>
+                    <Constant Value="SICUREZZA_INTERFACCIA" Name="INTERFACCIA"/>
+                    <Constant Value="SICUREZZA_MENU" Name="MENU"/>
+                    <Constant Value="SICUREZZA_MENU-UTENTE" Name="MENU_UTENTE"/>
+                    <Constant Value="SICUREZZA_PROFILAZIONE" Name="PROFILAZIONE"/>
+                    <Constant Value="SICUREZZA_RUOLI" Name="RUOLI"/>
+                    <Constant Value="SICUREZZA_UTENTI" Name="UTENTI"/>
+                </Constants>
+            </Table>
+            <Table Tablespace="USERS" Initial="65536.0" Temporary="false" Name="Sec_Dec_Menuutente">
+                <Columns>
+                    <Column PrimaryKey="true" Nullable="false" Type="VARCHAR2(100)" Position="0" DataLength="100" Name="Codmenuutente"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="VARCHAR2(20)" Position="1" DataLength="20" Name="Descrizionebreve"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="VARCHAR2(100)" Position="2" DataLength="100" Name="Descrizionelunga"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="NUMBER(38,0)" Position="3" DataLength="22" Name="Posizione"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="VARCHAR2(1)" Position="4" DataLength="1" Name="Flagvalido"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="VARCHAR2(10)" Position="5" DataLength="10" Name="Codtipovoce"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="VARCHAR2(100)" Position="6" DataLength="100" Name="Imghtml"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="VARCHAR2(200)" Position="7" DataLength="200" Name="Link"/>
+                </Columns>
+                <Indexes/>
+                <Constraints>
+                    <Constraint Type="PrimaryKey" Generated="false" Name="SEC_DEC_MENUUTENTE_PK">
+                        <Columns>
+                            <ConstraintColumn Name="CODMENUUTENTE"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="ForeignKey" Generated="false" Table="SEC_DEC_TIPIVOCE" Name="SEC_DEC_MENUUTENTE_FK1">
+                        <Columns>
+                            <ConstraintColumn Name="CODTIPOVOCE"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="flagvalido in ('S', 'N')" Generated="false" Name="SEC_DEC_MENUUTENTE_C1">
+                        <Columns>
+                            <ConstraintColumn Name="FLAGVALIDO"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;DESCRIZIONEBREVE&quot; IS NOT NULL" Generated="true" Name="SYS_C009579">
+                        <Columns>
+                            <ConstraintColumn Name="DESCRIZIONEBREVE"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;DESCRIZIONELUNGA&quot; IS NOT NULL" Generated="true" Name="SYS_C009580">
+                        <Columns>
+                            <ConstraintColumn Name="DESCRIZIONELUNGA"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;POSIZIONE&quot; IS NOT NULL" Generated="true" Name="SYS_C009581">
+                        <Columns>
+                            <ConstraintColumn Name="POSIZIONE"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;FLAGVALIDO&quot; IS NOT NULL" Generated="true" Name="SYS_C009582">
+                        <Columns>
+                            <ConstraintColumn Name="FLAGVALIDO"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;CODTIPOVOCE&quot; IS NOT NULL" Generated="true" Name="SYS_C009583">
+                        <Columns>
+                            <ConstraintColumn Name="CODTIPOVOCE"/>
+                        </Columns>
+                    </Constraint>
+                </Constraints>
+                <Triggers/>
+                <ForeignKeyReferences>
+                    <ForeignKeyReference TableName="Sec_Menuutenteruoli"/>
+                </ForeignKeyReferences>
+                <Grants/>
+                <Partitions/>
+                <Constants>
+                    <Constant Value="PROFILO" Name="PROFILO"/>
+                    <Constant Value="SEP" Name="SEPARATORE"/>
+                </Constants>
+            </Table>
+            <Table Tablespace="USERS" Initial="65536.0" Temporary="false" Name="Sec_Dec_Ruoli">
+                <Columns>
+                    <Column PrimaryKey="true" Nullable="false" Type="VARCHAR2(10)" Position="0" DataLength="10" Name="Codruolo"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="VARCHAR2(20)" Position="1" DataLength="20" Name="Descrizionebreve"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="VARCHAR2(100)" Position="2" DataLength="100" Name="Descrizionelunga"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="NUMBER(38,0)" Position="3" DataLength="22" Name="Posizione"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="VARCHAR2(1)" Position="4" DataLength="1" Name="Flagvalido"/>
+                </Columns>
+                <Indexes/>
+                <Constraints>
+                    <Constraint Type="PrimaryKey" Generated="false" Name="SEC_DEC_RUOLI_PK">
+                        <Columns>
+                            <ConstraintColumn Name="CODRUOLO"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="flagvalido in ('S', 'N')" Generated="false" Name="SEC_DEC_RUOLI_C1">
+                        <Columns>
+                            <ConstraintColumn Name="FLAGVALIDO"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;CODRUOLO&quot; IS NOT NULL" Generated="true" Name="SYS_C009561">
+                        <Columns>
+                            <ConstraintColumn Name="CODRUOLO"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;DESCRIZIONEBREVE&quot; IS NOT NULL" Generated="true" Name="SYS_C009562">
+                        <Columns>
+                            <ConstraintColumn Name="DESCRIZIONEBREVE"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;DESCRIZIONELUNGA&quot; IS NOT NULL" Generated="true" Name="SYS_C009563">
+                        <Columns>
+                            <ConstraintColumn Name="DESCRIZIONELUNGA"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;POSIZIONE&quot; IS NOT NULL" Generated="true" Name="SYS_C009564">
+                        <Columns>
+                            <ConstraintColumn Name="POSIZIONE"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;FLAGVALIDO&quot; IS NOT NULL" Generated="true" Name="SYS_C009565">
+                        <Columns>
+                            <ConstraintColumn Name="FLAGVALIDO"/>
+                        </Columns>
+                    </Constraint>
+                </Constraints>
+                <Triggers/>
+                <ForeignKeyReferences>
+                    <ForeignKeyReference TableName="Sec_Funzioniruoli"/>
+                    <ForeignKeyReference TableName="Sec_Menuruoli"/>
+                    <ForeignKeyReference TableName="Sec_Menuutenteruoli"/>
+                    <ForeignKeyReference TableName="Sec_Profili"/>
+                </ForeignKeyReferences>
+                <Grants/>
+                <Partitions/>
+                <Constants>
+                    <Constant Value="A" Name="AMMINISTRATORE"/>
+                    <Constant Value="C" Name="COMMERCIALE"/>
+                    <Constant Value="E" Name="OSPITE"/>
+                </Constants>
+            </Table>
+            <Table Tablespace="USERS" Initial="65536.0" Temporary="false" Name="Sec_Dec_Tipivoce">
+                <Columns>
+                    <Column PrimaryKey="true" Nullable="false" Type="VARCHAR2(10)" Position="0" DataLength="10" Name="Codtipovoce"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="VARCHAR2(20)" Position="1" DataLength="20" Name="Descrizionebreve"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="VARCHAR2(100)" Position="2" DataLength="100" Name="Descrizionelunga"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="NUMBER(38,0)" Position="3" DataLength="22" Name="Posizione"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="VARCHAR2(1)" Position="4" DataLength="1" Name="Flagvalido"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="VARCHAR2(1)" Position="5" DataLength="1" Name="Flagmenuutente"/>
+                </Columns>
+                <Indexes/>
+                <Constraints>
+                    <Constraint Type="PrimaryKey" Generated="false" Name="SEC_DEC_TIPIVOCE_PK">
+                        <Columns>
+                            <ConstraintColumn Name="CODTIPOVOCE"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="flagvalido in ('S', 'N')" Generated="false" Name="SEC_DEC_TIPIVOCE_C1">
+                        <Columns>
+                            <ConstraintColumn Name="FLAGVALIDO"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;CODTIPOVOCE&quot; IS NOT NULL" Generated="true" Name="SYS_C009584">
+                        <Columns>
+                            <ConstraintColumn Name="CODTIPOVOCE"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;DESCRIZIONEBREVE&quot; IS NOT NULL" Generated="true" Name="SYS_C009585">
+                        <Columns>
+                            <ConstraintColumn Name="DESCRIZIONEBREVE"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;DESCRIZIONELUNGA&quot; IS NOT NULL" Generated="true" Name="SYS_C009586">
+                        <Columns>
+                            <ConstraintColumn Name="DESCRIZIONELUNGA"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;POSIZIONE&quot; IS NOT NULL" Generated="true" Name="SYS_C009587">
+                        <Columns>
+                            <ConstraintColumn Name="POSIZIONE"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;FLAGVALIDO&quot; IS NOT NULL" Generated="true" Name="SYS_C009588">
+                        <Columns>
+                            <ConstraintColumn Name="FLAGVALIDO"/>
+                        </Columns>
+                    </Constraint>
+                </Constraints>
+                <Triggers/>
+                <ForeignKeyReferences>
+                    <ForeignKeyReference TableName="Sec_Dec_Menu"/>
+                    <ForeignKeyReference TableName="Sec_Dec_Menuutente"/>
+                </ForeignKeyReferences>
+                <Grants/>
+                <Partitions/>
+                <Constants>
+                    <Constant Value="SEPARATOR" Name="SEPARATORE"/>
+                    <Constant Value="TITLE" Name="TITOLO"/>
+                    <Constant Value="VOICE" Name="VOCE"/>
+                </Constants>
+            </Table>
+            <Table Tablespace="USERS" Initial="65536.0" Temporary="false" Name="Sec_Funzioniruoli">
+                <Columns>
+                    <Column PrimaryKey="true" Nullable="false" Type="VARCHAR2(100)" Position="0" DataLength="100" Name="Codfunzione"/>
+                    <Column PrimaryKey="true" Nullable="false" Type="VARCHAR2(10)" Position="1" DataLength="10" Name="Codruolo"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="VARCHAR2(1)" Position="2" DataLength="1" Name="Flagaccesso"/>
+                </Columns>
+                <Indexes/>
+                <Constraints>
+                    <Constraint Type="PrimaryKey" Generated="false" Name="SEC_FUNZIONIRUOLI_PK">
+                        <Columns>
+                            <ConstraintColumn Name="CODFUNZIONE"/>
+                            <ConstraintColumn Name="CODRUOLO"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="ForeignKey" Generated="false" Table="SEC_DEC_FUNZIONI" Name="SEC_FUNZIONIRUOLI_FK1">
+                        <Columns>
+                            <ConstraintColumn Name="CODFUNZIONE"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="ForeignKey" Generated="false" Table="SEC_DEC_RUOLI" Name="SEC_FUNZIONIRUOLI_FK2">
+                        <Columns>
+                            <ConstraintColumn Name="CODRUOLO"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="FLAGACCESSO in ('S', 'N')" Generated="false" Name="SEC_FUNZIONIRUOLI_CK1">
+                        <Columns>
+                            <ConstraintColumn Name="FLAGACCESSO"/>
+                        </Columns>
+                    </Constraint>
+                </Constraints>
+                <Triggers/>
+                <ForeignKeyReferences/>
+                <Grants/>
+                <Partitions/>
+                <Constants/>
+            </Table>
+            <Table Tablespace="USERS" Initial="65536.0" Temporary="false" Name="Sec_Menuruoli">
+                <Columns>
+                    <Column PrimaryKey="true" Nullable="false" Type="VARCHAR2(100)" Position="0" DataLength="100" Name="Codmenu"/>
+                    <Column PrimaryKey="true" Nullable="false" Type="VARCHAR2(10)" Position="1" DataLength="10" Name="Codruolo"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="VARCHAR2(1)" Position="2" DataLength="1" Name="Flagaccesso"/>
+                </Columns>
+                <Indexes/>
+                <Constraints>
+                    <Constraint Type="PrimaryKey" Generated="false" Name="SEC_MENURUOLI_PK">
+                        <Columns>
+                            <ConstraintColumn Name="CODMENU"/>
+                            <ConstraintColumn Name="CODRUOLO"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="ForeignKey" Generated="false" Table="SEC_DEC_MENU" Name="SEC_MENURUOLI_FK1">
+                        <Columns>
+                            <ConstraintColumn Name="CODMENU"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="ForeignKey" Generated="false" Table="SEC_DEC_RUOLI" Name="SEC_MENURUOLI_FK2">
+                        <Columns>
+                            <ConstraintColumn Name="CODRUOLO"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="FLAGACCESSO in ('S', 'N')" Generated="false" Name="SEC_MENURUOLI_CK1">
+                        <Columns>
+                            <ConstraintColumn Name="FLAGACCESSO"/>
+                        </Columns>
+                    </Constraint>
+                </Constraints>
+                <Triggers/>
+                <ForeignKeyReferences/>
+                <Grants/>
+                <Partitions/>
+                <Constants/>
+            </Table>
+            <Table Tablespace="USERS" Initial="65536.0" Temporary="false" Name="Sec_Menuutenteruoli">
+                <Columns>
+                    <Column PrimaryKey="true" Nullable="false" Type="VARCHAR2(100)" Position="0" DataLength="100" Name="Codmenuutente"/>
+                    <Column PrimaryKey="true" Nullable="false" Type="VARCHAR2(10)" Position="1" DataLength="10" Name="Codruolo"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="VARCHAR2(1)" Position="2" DataLength="1" Name="Flagaccesso"/>
+                </Columns>
+                <Indexes/>
+                <Constraints>
+                    <Constraint Type="PrimaryKey" Generated="false" Name="SEC_MENUUTENTERUOLI_PK">
+                        <Columns>
+                            <ConstraintColumn Name="CODMENUUTENTE"/>
+                            <ConstraintColumn Name="CODRUOLO"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="ForeignKey" Generated="false" Table="SEC_DEC_MENUUTENTE" Name="SEC_MENUUTENTERUOLI_FK1">
+                        <Columns>
+                            <ConstraintColumn Name="CODMENUUTENTE"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="ForeignKey" Generated="false" Table="SEC_DEC_RUOLI" Name="SEC_MENUUTENTERUOLI_FK2">
+                        <Columns>
+                            <ConstraintColumn Name="CODRUOLO"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="FLAGACCESSO in ('S', 'N')" Generated="false" Name="SEC_MENUUTENTERUOLI_CK1">
+                        <Columns>
+                            <ConstraintColumn Name="FLAGACCESSO"/>
+                        </Columns>
+                    </Constraint>
+                </Constraints>
+                <Triggers/>
+                <ForeignKeyReferences/>
+                <Grants/>
+                <Partitions/>
+                <Constants/>
+            </Table>
+            <Table Tablespace="USERS" Initial="65536.0" Temporary="false" Name="Sec_Profili">
+                <Columns>
+                    <Column PrimaryKey="true" Nullable="false" Type="NUMBER(38,0)" Position="0" DataLength="22" Name="Idprofilo"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="NUMBER(38,0)" Position="1" DataLength="22" Name="Idutente"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="VARCHAR2(10)" Position="2" DataLength="10" Name="Codruolo"/>
+                    <Column PrimaryKey="false" Nullable="false" Type="DATE" Position="3" DataLength="7" Name="Datainizio"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="DATE" Position="4" DataLength="7" Name="Datafine"/>
+                </Columns>
+                <Indexes/>
+                <Constraints>
+                    <Constraint Type="PrimaryKey" Generated="false" Name="SEC_PROFILI_PK">
+                        <Columns>
+                            <ConstraintColumn Name="IDPROFILO"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="ForeignKey" Generated="false" Table="SEC_UTENTI" Name="SEC_PROFILI_FK1">
+                        <Columns>
+                            <ConstraintColumn Name="IDUTENTE"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="ForeignKey" Generated="false" Table="SEC_DEC_RUOLI" Name="SEC_PROFILI_FK2">
+                        <Columns>
+                            <ConstraintColumn Name="CODRUOLO"/>
+                        </Columns>
+                    </Constraint>
+                    <Constraint Type="Check" SearchCondition="&quot;DATAINIZIO&quot; IS NOT NULL" Generated="true" Name="SYS_C009578">
+                        <Columns>
+                            <ConstraintColumn Name="DATAINIZIO"/>
+                        </Columns>
+                    </Constraint>
+                </Constraints>
+                <Triggers/>
+                <ForeignKeyReferences/>
+                <Grants/>
+                <Partitions/>
+                <Constants/>
+            </Table>
+            <Table Tablespace="USERS" Initial="65536.0" Temporary="false" Name="Sec_Utenti">
+                <Columns>
+                    <Column PrimaryKey="true" Nullable="false" Type="NUMBER(38,0)" Position="0" DataLength="22" Name="Idutente"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="VARCHAR2(100)" Position="1" DataLength="100" Name="Nome"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="VARCHAR2(100)" Position="2" DataLength="100" Name="Cognome"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="VARCHAR2(10)" Position="3" DataLength="10" Name="Userid"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="VARCHAR2(10)" Position="4" DataLength="10" Name="Password"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="VARCHAR2(100)" Position="5" DataLength="100" Name="Email"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="VARCHAR2(100)" Position="6" DataLength="100" Name="Emailpassword"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="VARCHAR2(5)" Position="7" DataLength="5" Name="Locale"/>
+                    <Column PrimaryKey="false" Nullable="true" Type="BLOB" Position="8" DataLength="4000" Name="Foto"/>
+                </Columns>
+                <Indexes/>
+                <Constraints>
+                    <Constraint Type="PrimaryKey" Generated="false" Name="SEC_UTENTI_PK">
+                        <Columns>
+                            <ConstraintColumn Name="IDUTENTE"/>
+                        </Columns>
+                    </Constraint>
+                </Constraints>
+                <Triggers/>
+                <ForeignKeyReferences>
+                    <ForeignKeyReference TableName="Sec_Profili"/>
+                </ForeignKeyReferences>
+                <Grants/>
+                <Partitions/>
+                <Constants/>
+            </Table>
+        </Tables>
+        <Views/>
+        <Packages>
+            <Package Name="LIB_SICUREZZA">
+                <SourceSpec>Package Lib_Sicurezza As
+
+  Function GetruoliFunzione (InCodfunzione In Varchar2) Return Varchar2;
+  Function GetruoliMenu (InCodMenu In Varchar2) Return Varchar2;
+  Function GetruoliMenuUtente (InCodMenuUtente In Varchar2) Return Varchar2;
+
+End;</SourceSpec>
+                <SourceBody>Package Body Lib_Sicurezza As
+
+  Function GetruoliFunzione (InCodFunzione In Varchar2) Return Varchar2 is
+      Result Varchar2(1000);
+
+      Cursor Cruoli Is
+        Select R.Descrizionebreve
+        From Sec_Dec_Ruoli R, Sec_Funzioniruoli Fr
+        Where R.Codruolo = Fr.Codruolo And
+              Fr.Codfunzione = Incodfunzione And
+              Fr.Flagaccesso = 'S'
+        Order by 1;
+
+    Begin
+      For Rruoli In Cruoli Loop
+        If Result Is Null Then
+          Result := Result || Rruoli.Descrizionebreve;
+        Else
+          Result := Result || ', ' || Rruoli.Descrizionebreve;
+        End If;
+      End Loop;
+
+      return Result;
+    End;
+
+  Function GetruoliMenu (InCodMenu In Varchar2) Return Varchar2 is
+      Result Varchar2(1000);
+
+      Cursor Cruoli Is
+        Select R.Descrizionebreve
+        From Sec_Dec_Ruoli R, Sec_Menuruoli mr
+        Where R.Codruolo = mr.Codruolo And
+              mr.CodMenu = IncodMenu And
+              mr.Flagaccesso = 'S'
+        Order by 1;
+
+    Begin
+      For Rruoli In Cruoli Loop
+        If Result Is Null Then
+          Result := Result || Rruoli.Descrizionebreve;
+        Else
+          Result := Result || ', ' || Rruoli.Descrizionebreve;
+        End If;
+      End Loop;
+
+      return Result;
+    End;    
+
+  Function GetruoliMenuUtente (InCodMenuUtente In Varchar2) Return Varchar2 is
+      Result Varchar2(1000);
+
+      Cursor Cruoli Is
+        Select R.Descrizionebreve
+        From Sec_Dec_Ruoli R, Sec_MenuUtenteruoli mr
+        Where R.Codruolo = mr.Codruolo And
+              mr.CodMenuUtente = IncodMenuUtente And
+              mr.Flagaccesso = 'S'
+        Order by 1;
+
+    Begin
+      For Rruoli In Cruoli Loop
+        If Result Is Null Then
+          Result := Result || Rruoli.Descrizionebreve;
+        Else
+          Result := Result || ', ' || Rruoli.Descrizionebreve;
+        End If;
+      End Loop;
+
+      return Result;
+    End;  
+End;</SourceBody>
+                <Methods>
+                    <Method Name="Getruolifunzione" Type="FUNCTION" Overload="0">
+                        <Arguments>
+                            <Argument Type="VARCHAR2" InOut="OUT" Position="0"/>
+                            <Argument Name="Incodfunzione" Type="VARCHAR2" InOut="IN" Position="1"/>
+                        </Arguments>
+                    </Method>
+                    <Method Name="Getruolimenu" Type="FUNCTION" Overload="0">
+                        <Arguments>
+                            <Argument Type="VARCHAR2" InOut="OUT" Position="0"/>
+                            <Argument Name="Incodmenu" Type="VARCHAR2" InOut="IN" Position="1"/>
+                        </Arguments>
+                    </Method>
+                    <Method Name="Getruolimenuutente" Type="FUNCTION" Overload="0">
+                        <Arguments>
+                            <Argument Type="VARCHAR2" InOut="OUT" Position="0"/>
+                            <Argument Name="Incodmenuutente" Type="VARCHAR2" InOut="IN" Position="1"/>
+                        </Arguments>
+                    </Method>
+                </Methods>
+            </Package>
+        </Packages>
+        <Sequences>
+            <Sequence Name="Sec_Seq_Idutente"/>
+            <Sequence Name="Seq_Idprofilo"/>
+        </Sequences>
+    </DataBase>
+</DbToolProject>

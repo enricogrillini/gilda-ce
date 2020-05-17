@@ -1,0 +1,145 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+ <modelVersion>4.0.0</modelVersion>
+
+ <groupId>it.eg.sloth</groupId>
+ <artifactId>gilda-ce</artifactId>
+ <packaging>war</packaging>
+ <version>2.0.0-SNAPSHOT</version>
+ <name>Gilda-ce</name>
+ <url>http://maven.apache.org</url>
+
+ <properties>
+  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  <java.version>1.8</java.version>
+ </properties>
+
+ <parent>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-parent</artifactId>
+  <version>2.2.0.RELEASE</version>
+  <relativePath />
+ </parent>
+
+ <dependencies>
+  <dependency>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-web</artifactId>
+   <exclusions>
+    <exclusion>
+     <groupId>org.springframework.boot</groupId>
+     <artifactId>spring-boot-starter-logging</artifactId>
+    </exclusion>
+   </exclusions>
+  </dependency>
+  <dependency>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-log4j2</artifactId>
+  </dependency>
+
+  <dependency>
+   <groupId>javax.servlet</groupId>
+   <artifactId>jstl</artifactId>
+  </dependency>
+
+  <dependency>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-tomcat</artifactId>
+   <scope>provided</scope>
+  </dependency>
+
+  <dependency>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-data-jdbc</artifactId>
+  </dependency>
+
+  <dependency>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-test</artifactId>
+   <scope>test</scope>
+  </dependency>
+
+  <!-- Tomcat Embedded - Commentare se rilasciato su Application Server -->
+  <dependency>
+   <groupId>org.apache.tomcat.embed</groupId>
+   <artifactId>tomcat-embed-jasper</artifactId>
+   <scope>provided</scope>
+  </dependency>
+
+  <!-- JDBC Driver -->
+  <dependency>
+   <groupId>com.h2database</groupId>
+   <artifactId>h2</artifactId>
+   <scope>runtime</scope>
+  </dependency>
+  <dependency>
+   <groupId>com.oracle</groupId>
+   <artifactId>ojdbc6</artifactId>
+   <version>11.2.0.4</version>
+  </dependency>
+
+  <!-- SlothFramework -->
+  <dependency>
+   <groupId>it.eg.sloth</groupId>
+   <artifactId>sloth-framework</artifactId>
+   <version>2.0.0-SNAPSHOT</version>
+   <scope>compile</scope>
+  </dependency>
+
+  <!-- Lombok -->
+  <dependency>
+   <groupId>org.projectlombok</groupId>
+   <artifactId>lombok</artifactId>
+   <version>1.18.12</version>
+   <scope>provided</scope>
+  </dependency>
+
+  <!-- swagger -->
+  <dependency>
+   <groupId>io.springfox</groupId>
+   <artifactId>springfox-swagger2</artifactId>
+   <version>2.9.2</version>
+  </dependency>
+  <dependency>
+   <groupId>io.springfox</groupId>
+   <artifactId>springfox-swagger-ui</artifactId>
+   <version>2.9.2</version>
+  </dependency>
+ </dependencies>
+
+ <build>
+  <finalName>gilda-ce</finalName>
+
+  <plugins>
+   <plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+   </plugin>
+
+   <!-- SlothGen -->
+   <plugin>
+    <groupId>it.eg.sloth</groupId>
+    <artifactId>sloth-maven-plugin</artifactId>
+    <version>2.0.0-SNAPSHOT</version>
+    <executions>
+     <execution>
+      <id>default</id>
+      <phase>generate-sources</phase>
+      <goals>
+       <goal>form</goal>
+       <goal>spring</goal>
+       <goal>bean</goal>
+      </goals>
+      <configuration>
+       <controllerPackage>it.itdistribuzione.gilda.controller</controllerPackage>
+       <genPackage>it.itdistribuzione.gilda.gen</genPackage>
+       <!--formDirectory>form</formDirectory -->
+       <!--dbSchema>db/dbSchema.xml</dbSchema -->
+      </configuration>
+     </execution>
+    </executions>
+   </plugin>
+  </plugins>
+
+ </build>
+</project>

@@ -1,0 +1,103 @@
+/* AUTOCOMPLETE */
+.autocomplete-suggestions {
+	border: 1px solid #999;
+	background: #FFF;
+	overflow: auto;
+	background-color: #fff;
+}
+
+.autocomplete-suggestion i {
+	font-size: 1.5rem;
+}
+
+.autocomplete-suggestion span {
+	width: 40px;
+	min-height: 20px;
+}
+
+.autocomplete-suggestion {
+	padding: 2px 5px;
+	white-space: nowrap;
+	overflow: hidden;
+	line-height: 15px;
+	cursor: pointer;
+}
+
+.autocomplete-selected {
+	background: #F0F0F0;
+}
+
+.autocomplete-suggestions strong {
+	font-weight: normal;
+	color: #3399FF;
+}
+
+.autocomplete-group {
+	padding: 2px 5px;
+}
+
+.autocomplete-group strong {
+	display: block;
+	border-bottom: 1px solid #000;
+}
+
+/* Avatar */
+.avatar-circle {
+	width: 35px;
+	height: 35px;
+	background-color: $brand-special;
+	text-align: center;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+}
+
+.initials {
+	color: #fff;
+	position: relative;
+	font-size: 17px; /* 50% of parent */
+	line-height: 35px; /* 50% of parent */
+	color: #fff;
+	font-weight: bold;
+}
+
+/* sb-admin change */
+.table-sm th, .table-sm td {
+	padding: 0.5rem;
+	font-size: 0.875rem;;
+}
+
+/* sb-admin custom-file-label */
+.custom-file-label {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1;
+	height: calc(1.5em + 0.75rem);
+	padding: 0.25rem 0.75rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #6e707e;
+	background-color: #fff;
+	border: 1px solid #d1d3e2;
+	border-radius: 0.2rem;
+}
+
+/* sb-admin custom-file-label */
+.custom-file-label::after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 3;
+	display: block;
+	height: calc(1.5em + 0.75rem - 2px);
+	padding: 0.25rem 0.75rem;
+	line-height: 1.5;
+	color: #6e707e;
+	content: "Browse";
+	background-color: #eaecf4;
+	border-left: inherit;
+	border-radius: 0 0.2rem 0.2rem 0;
+}

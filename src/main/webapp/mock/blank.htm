@@ -1,0 +1,407 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <meta name="description" content="">
+ <meta name="author" content="">
+
+ <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.png">
+ <title>Job</title>
+ <link href="../vendor/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+ <link href="../css/sb-admin-2.css" rel="stylesheet">
+ <link href="../css/web-desktop.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+ 
+ <!-- Page wrapper -->
+ <div id="wrapper">
+
+  
+  <!-- Menu -->
+  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+   <li class="nav-item"><a class="nav-link" href="HomePrivataPage.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+   <li class="nav-item"><a class="nav-link" href="ClientiPage.html"><i class="fas fa-people-carry"></i><span>Clienti</span></a></li>
+   <li class="nav-item"><a class="nav-link" href="OrdiniPage.html"><i class="fas fa-shopping-cart"></i><span>Ordini</span></a></li>
+   <li class="nav-item"><a class="nav-link" href="ControlliPage.html"><i class="fab fa-wpforms"></i><span>Controlli</span></a></li>
+   <li class="nav-item"><a class="nav-link" href="ReportPage.html"><i class="fas fa-chart-area"></i><span>Report</span></a></li>
+   <hr class="sidebar-divider">
+   <div class="sidebar-heading">Piattaforma</div>
+   <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#SICUREZZA" aria-expanded="true" aria-controls="collapseUtilities">
+     <i class="fas fa-shield-alt"></i><span>Sicurezza</span>
+    </a>
+    <div id="SICUREZZA" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+     <div class="bg-white py-2 collapse-inner rounded">
+   <h6 class="collapse-header">Profilazione</h6>
+      <a class="collapse-item" href="UtentiPage.html">Utenti</a>
+      <a class="collapse-item" href="RuoliPage.html">Ruoli</a>
+   <h6 class="collapse-header">Interfaccia</h6>
+      <a class="collapse-item" href="FunzioniPage.html">Funzioni</a>
+      <a class="collapse-item" href="MenuPage.html">Menu</a>
+      <a class="collapse-item" href="MenuUtentePage.html">Menu utente</a>
+     </div>
+    </div>
+   </li>
+   <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#UTILITA" aria-expanded="true" aria-controls="collapseUtilities">
+     <i class="fas fa-cogs"></i><span>Utilit&agrave;</span>
+    </a>
+    <div id="UTILITA" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+     <div class="bg-white py-2 collapse-inner rounded">
+      <a class="collapse-item" href="PagineWikiPage.html">Pagine wiki</a>
+      <a class="collapse-item" href="LogElaborazioniPage.html">Log</a>
+      <a class="collapse-item" href="MailSenderPage.html">Mail sender</a>
+      <a class="collapse-item" href="MonitorPage.html">Monitor</a>
+      <a class="collapse-item" href="JobPage.html">Job</a>
+     </div>
+    </div>
+   </li>
+   <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#DECODIFICHE" aria-expanded="true" aria-controls="collapseUtilities">
+     <i class="far fa-file-alt"></i><span>Decodifiche</span>
+    </a>
+    <div id="DECODIFICHE" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+     <div class="bg-white py-2 collapse-inner rounded">
+      <a class="collapse-item" href="TipiClientePage.html">Tipi Cliente</a>
+     </div>
+    </div>
+   </li>
+   <!-- Sidebar Toggler (Sidebar) -->
+   <hr class="sidebar-divider d-none d-md-block">
+   <div class="text-center d-none d-md-inline">
+    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+   </div>
+  </ul>
+  
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" class="d-flex flex-column">
+   <div id="content">
+    <!-- Topbar -->
+    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+     <!-- Topbar - Sidebar Toggle -->
+     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+      <i class="fa fa-bars"></i>
+     </button>
+
+     <!-- Topbar - Titolo pagina -->
+     <h3 class="navbar-text font-weight-bold col-2 col-sm-4">Job</h3>
+     <!-- Topbar - Search -->
+     <form id="searchForm" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="SearchPage.html" method="post">
+<!-- Search bar -->
+<div class="input-group">
+ <input id="searchValue" name="searchValue" type="hidden">
+ <input id="searchData" name="searchData" type="hidden">
+ <input id="searchText" name="searchText" type="text" value="" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+ <div class="input-group-append">
+  <button class="btn btn-primary" type="submit">
+   <i class="fas fa-search fa-sm"></i>
+  </button>
+ </div>
+</div>
+     </form>
+     <!-- Topbar - User Information -->
+     <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown no-arrow mx-1"><a class="nav-link dropdown-toggle" href="WikiPage.html" id="messagesDropdown" role="button" data-toggle="tooltip" data-placement="bottom" title="Documentazione e FAQ" aria-haspopup="true" aria-expanded="false"><i class="fas fa-question-circle"></i></a></li>
+      <div class="topbar-divider d-none d-sm-block"></div>
+      <li class="nav-item dropdown no-arrow">
+       <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Amministratore Sistema</span>
+        <img class="img-profile rounded-circle" src="../api/webdesktop/avatar">
+       </a>
+       <!-- Menu Utente-->
+       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+        <a class="dropdown-item" href="ProfiloPage.html">
+         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+         Profilo
+        </a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+         Esci
+        </a>
+       </div>
+      </li>
+     </ul>
+    </nav>
+   <!-- Begin Page Content -->
+   <div class="container-fluid" >
+    <form id="mainForm" action="JobPage.html" method="post">
+
+   
+
+   <div class="row">
+    <div class="col-2 mb-4">
+     <!-- SimpleCard -->
+<div class="card shadow border-left-primary py-0">
+ <div class="card-body">
+  <div class="row no-gutters align-items-center">
+
+   <div class="col mr-2">
+    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Scheduler</div>
+    <div class="row no-gutters align-items-center">
+     <div class="col-auto">
+      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">Attivo</div>
+     </div>
+     <!--div class="col">
+      <div class="progress progress-sm mr-2">
+       <div class="progress-bar bg-info" role="progressbar" style="width: 50%"></div>
+      </div>
+     </div-->
+    </div>
+   </div>
+
+
+      
+      
+       <button id="navigationprefix___button___standby" name="navigationprefix___button___standby" class="btn btn-outline-primary btn-sm"/>StandBy</button>
+      
+       </div>
+ </div>
+</div>
+
+
+    </div>
+
+    <div class="col-2 mb-4">
+     <!-- SimpleCard -->
+<div class="card shadow border-left-primary py-0">
+ <div class="card-body">
+  <div class="row no-gutters align-items-center">
+
+   <div class="col mr-2">
+    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">job</div>
+    <div class="row no-gutters align-items-center">
+     <div class="col-auto">
+      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">1</div>
+     </div>
+     <!--div class="col">
+      <div class="progress progress-sm mr-2">
+       <div class="progress-bar bg-info" role="progressbar" style="width: 50%"></div>
+      </div>
+     </div-->
+    </div>
+   </div>
+
+
+      <button id="navigationprefix___button___refresh" name="navigationprefix___button___refresh" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Refresh"/><i class="fas fa-sync"></i></button>
+       </div>
+ </div>
+</div>
+
+
+    </div>
+
+    <div class="col-2 mb-4">
+     <!-- SimpleCard -->
+<div class="card shadow border-left-primary py-0">
+ <div class="card-body">
+  <div class="row no-gutters align-items-center">
+
+   <div class="col mr-2">
+    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Trigger</div>
+    <div class="row no-gutters align-items-center">
+     <div class="col-auto">
+      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">1</div>
+     </div>
+     <!--div class="col">
+      <div class="progress progress-sm mr-2">
+       <div class="progress-bar bg-info" role="progressbar" style="width: 50%"></div>
+      </div>
+     </div-->
+    </div>
+   </div>
+
+
+      <button id="navigationprefix___button___refresh" name="navigationprefix___button___refresh" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Refresh"/><i class="fas fa-sync"></i></button>
+       </div>
+ </div>
+</div>
+
+
+    </div>
+
+    <div class="col-2 mb-4">
+     <!-- SimpleCard -->
+<div class="card shadow border-left-primary py-0">
+ <div class="card-body">
+  <div class="row no-gutters align-items-center">
+
+   <div class="col mr-2">
+    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Running Job</div>
+    <div class="row no-gutters align-items-center">
+     <div class="col-auto">
+      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">1</div>
+     </div>
+     <!--div class="col">
+      <div class="progress progress-sm mr-2">
+       <div class="progress-bar bg-info" role="progressbar" style="width: 50%"></div>
+      </div>
+     </div-->
+    </div>
+   </div>
+
+
+      <button id="navigationprefix___button___refresh" name="navigationprefix___button___refresh" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Refresh"/><i class="fas fa-sync"></i></button>
+       </div>
+ </div>
+</div>
+
+
+    </div>
+
+    <div class="col-2 mb-4">
+     <!-- SimpleCard -->
+<div class="card shadow border-left-primary py-0">
+ <div class="card-body">
+  <div class="row no-gutters align-items-center">
+
+   <div class="col mr-2">
+    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total executions</div>
+    <div class="row no-gutters align-items-center">
+     <div class="col-auto">
+      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">21</div>
+     </div>
+     <!--div class="col">
+      <div class="progress progress-sm mr-2">
+       <div class="progress-bar bg-info" role="progressbar" style="width: 50%"></div>
+      </div>
+     </div-->
+    </div>
+   </div>
+
+
+      <button id="navigationprefix___button___refresh" name="navigationprefix___button___refresh" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Refresh"/><i class="fas fa-sync"></i></button>
+       </div>
+ </div>
+</div>
+
+
+    </div>
+   </div>
+
+   <div class="card shadow mb-4">
+    <!-- Tabella -->
+    <div class="card-body">
+     
+<!-- Table: Job -->
+<table class="table table-bordered table-hover table-sm" id="dataTable" width="100%" cellspacing="0">
+ <thead>
+  <tr>
+   <th class="p-1"><button type="submit" name="navigationprefix___sortasc___Master___classname" class="btn btn-Link btn-block btn-sm"><b>Class name</b><i class="fas fa-sort float-right m-1"></i></button></th>
+   <th class="p-1"><button type="submit" name="navigationprefix___sortdesc___Master___jobname" class="btn btn-Link btn-block btn-sm"><b>Job name</b><i class="fas fa-sort-up float-right m-1"></i></button></th>
+   <th class="p-1"><button type="submit" name="navigationprefix___sortasc___Master___groupname" class="btn btn-Link btn-block btn-sm"><b>Group name</b><i class="fas fa-sort float-right m-1"></i></button></th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr id="navigationprefix___row___master___0" class="table-primary">
+   <td>it.itdistribuzione.gilda.job.HelloJob</td>
+   <td>HelloJob</td>
+   <td>Prova</td>
+  </tr>
+ </tbody>
+</table>
+
+    </div>
+
+    <!-- Toolbar -->
+    <div class="card-footer">
+      <div class="float-left form-inline">
+<button name="navigationprefix___firstpage___master" disabled="" type="submit" class="btn btn-link btn-sm" data-toggle="tooltip" data-placement="bottom" title="Primo record"><i class="fas fa-fast-backward"></i></button>
+<button name="navigationprefix___prevpage___master" disabled="" type="submit" class="btn btn-link btn-sm" data-toggle="tooltip" data-placement="bottom" title="Pagina precedende"><i class="fas fa-backward"></i></button>
+<button name="navigationprefix___prev___master" disabled="" type="submit" class="btn btn-link btn-sm" data-toggle="tooltip" data-placement="bottom" title="Record precedende"><i class="fas fa-step-backward"></i></button>
+<button name="navigationprefix___next___master" disabled="" type="submit" class="btn btn-link btn-sm" data-toggle="tooltip" data-placement="bottom" title="Record successivo"><i class="fas fa-step-forward"></i></button>
+<button name="navigationprefix___nextpage___master" disabled="" type="submit" class="btn btn-link btn-sm" data-toggle="tooltip" data-placement="bottom" title="Pagina sucessiva"><i class="fas fa-forward"></i></button>
+<button name="navigationprefix___lastrow___master" disabled="" type="submit" class="btn btn-link btn-sm" data-toggle="tooltip" data-placement="bottom" title="Ultimo record"><i class="fas fa-fast-forward"></i></button>
+ <a href="JobPage.html?navigationprefix___excel___Master=true" class="btn btn-link btn-sm" data-toggle="tooltip" data-placement="bottom" title="Esporta in excel"><i class="far fa-file-excel"></i> Excel</a>
+ Rec. 1 di 1 </div>
+ <div class="float-right">
+<button name="navigationprefix___insert___master" type="submit" class="btn btn-link btn-sm" data-toggle="tooltip" data-placement="bottom" title="Inserisci record"><i class="fas fa-plus"></i> Inserisci</button>
+<button name="navigationprefix___delete___master" type="submit" class="btn btn-link btn-sm" data-toggle="tooltip" data-placement="bottom" title="Elimina il record corrente"><i class="fas fa-minus"></i> Elimina</button>
+<button name="navigationprefix___update___master" type="submit" class="btn btn-link btn-sm" data-toggle="tooltip" data-placement="bottom" title="Modifica il record corrente"><i class="fas fa-pencil-alt"></i> Modifica</button>
+ </div>
+
+    </div>
+   </div>
+
+   <div class="card shadow">
+    <!-- Tabella -->
+    <div class="card-body">
+    <h3>Running Job</h3>
+     
+<!-- Table: RunningJob -->
+<table class="table table-bordered table-hover table-sm" id="dataTable" width="100%" cellspacing="0">
+ <thead>
+  <tr>
+   <th class="p-1"><button type="submit" name="navigationprefix___sortasc___RunningJob___fireinstanceid" class="btn btn-Link btn-block btn-sm"><b>Fire instance Id</b><i class="fas fa-sort float-right m-1"></i></button></th>
+   <th class="p-1"><button type="submit" name="navigationprefix___sortasc___RunningJob___jobname" class="btn btn-Link btn-block btn-sm"><b>Job name</b><i class="fas fa-sort float-right m-1"></i></button></th>
+   <th class="p-1"><button type="submit" name="navigationprefix___sortasc___RunningJob___groupname" class="btn btn-Link btn-block btn-sm"><b>Group name</b><i class="fas fa-sort float-right m-1"></i></button></th>
+   <th class="p-1"><button type="submit" name="navigationprefix___sortasc___RunningJob___firetime" class="btn btn-Link btn-block btn-sm"><b>Fire time</b><i class="fas fa-sort float-right m-1"></i></button></th>
+   <th class="p-1"><button type="submit" name="navigationprefix___sortasc___RunningJob___nextfiretime" class="btn btn-Link btn-block btn-sm"><b>Next fire time</b><i class="fas fa-sort float-right m-1"></i></button></th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr id="navigationprefix___row___runningjob___0" class="table-primary">
+   <td>1588664356225</td>
+   <td>HelloJob</td>
+   <td>Prova</td>
+   <td>05/05/2020 09:59:00</td>
+   <td>05/05/2020 10:00:00</td>
+  </tr>
+ </tbody>
+</table>
+
+    </div>
+   </div>
+      </form>
+   </div>
+  </div>
+ </div>
+
+  </div> <!-- Scroll to Top Button-->
+ <a class="scroll-to-top rounded" href="#page-top"> <i class="fas fa-angle-up"></i></a>
+
+ <!-- Logout Modal-->
+ <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalLabel">Vuoi uscire?</h5>
+         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">×</span>
+         </button>
+       </div>
+       <div class="modal-body">Selezionare "Esci" per terminare la sessione corrente.</div>
+       <div class="modal-footer">
+         <button class="btn btn-secondary" type="button" data-dismiss="modal">Annulla</button>
+         <a class="btn btn-primary" href="LogoutPage.html">Esci</a>
+       </div>
+     </div>
+   </div>
+ </div>
+ <script src="../vendor/jquery/jquery.min.js"></script>
+ <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+ <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+ <script src="../vendor/jquery-autocomplete/jquery.autocomplete.js"></script>
+ <script src="../js/sb-admin-2.min.js"></script>
+ <script src="../js/web-desktop.js"></script>
+ <script src="../vendor/chart.js/Chart.min.js"></script>
+ <script src="../js/web-desktop-chart.js"></script>
+
+</body>
+
+
+</html>
+

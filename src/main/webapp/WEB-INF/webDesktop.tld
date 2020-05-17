@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib
+        PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+        "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<taglib>
+ <tlib-version>1.0</tlib-version>
+ <jsp-version>1.1</jsp-version>
+ <short-name>webDesktopTags</short-name>
+ <uri>webDesktopTags</uri>
+ <description>Web Desktop Tags</description>
+
+ <tag>
+  <name>html</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.page.HtmlTag</tag-class>
+  <body-content>JSP</body-content>
+  <description>Rappresenta l'apertura della pagina web</description>
+ </tag>
+
+ <tag>
+  <name>head</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.page.HeadTag</tag-class>
+  <body-content>JSP</body-content>
+  <description>Rappresenta l'head della pagina</description>
+ </tag>
+
+ <tag>
+  <name>body</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.page.BodyTag</tag-class>
+  <body-content>JSP</body-content>
+  <description>Rappresenta il body della pagina</description>
+  <attribute>
+   <name>className</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+ </tag>
+
+ <tag>
+  <name>page</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.pagearea.PageTag</tag-class>
+  <body-content>JSP</body-content>
+  <description>Rappresenta il wrapper della pagina</description>
+ </tag>
+
+ <tag>
+  <name>menu</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.pagearea.MenuTag</tag-class>
+  <body-content>JSP</body-content>
+  <description>Rappresenta il menu</description>
+ </tag>
+ <tag>
+  <name>content</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.pagearea.ContentTag</tag-class>
+  <body-content>JSP</body-content>
+  <description>Rappresenta il container principale</description>
+  <attribute>
+   <name>multipart</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+   <type>java.lang.Boolean</type>
+  </attribute>
+  <attribute>
+   <name>hideSearch</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+   <type>java.lang.Boolean</type>
+  </attribute>
+ </tag>
+ <tag>
+  <name>search</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.pagearea.SearchTag</tag-class>
+  <body-content>empty</body-content>
+  <description>Rappresenta il risultato della ricerca</description>
+ </tag>
+
+ <tag>
+  <name>checkMessage</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.pagearea.CheckMessageTag</tag-class>
+  <body-content>empty</body-content>
+  <description>Rappresenta il container principale</description>
+ </tag>
+
+ <!-- Tile -->
+ <tag>
+  <name>tile</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.home.TileTag</tag-class>
+  <body-content>JSP</body-content>
+  <small-icon />
+  <large-icon />
+  <description>Scrive il box delle tile in Home page</description>
+  <attribute>
+   <name>id</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>left</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>top</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>bottom</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>right</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>grid</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <tag>
+  <name>environment</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.home.EnvironmentTag</tag-class>
+  <body-content>JSP</body-content>
+  <small-icon />
+  <large-icon />
+  <description>Scrive l'environment</description>
+  <example />
+ </tag>
+
+</taglib>

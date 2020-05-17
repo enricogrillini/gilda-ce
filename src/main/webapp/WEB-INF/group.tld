@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+        "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+ <tlib-version>1.0</tlib-version>
+ <jsp-version>1.2</jsp-version>
+ <short-name>group</short-name>
+ <uri>groupTags</uri>
+ <display-name>group</display-name>
+ <description></description>
+
+ <!-- group -->
+ <tag>
+  <name>group</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.group.GroupTag</tag-class>
+  <body-content>JSP</body-content>
+  <small-icon />
+  <large-icon />
+  <description>Scrive il gruppo</description>
+  <attribute>
+   <name>legend</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>style</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>class</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+
+
+ <!-- row -->
+ <tag>
+  <name>row</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.group.RowTag</tag-class>
+  <body-content>JSP</body-content>
+  <small-icon />
+  <large-icon />
+  <description>Scrive una riga</description>
+  <example />
+ </tag>
+
+ <!-- cell -->
+ <tag>
+  <name>cell</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.group.CellTag</tag-class>
+  <body-content>JSP</body-content>
+  <small-icon />
+  <large-icon />
+  <description>Scrive una cella</description>
+  <attribute>
+   <name>width</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>style</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <name>classname</name>
+   <required>false</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+
+  <example />
+ </tag>
+
+ <!-- infoBox -->
+ <tag>
+  <name>infoBox</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.info.InfoBoxTag</tag-class>
+  <body-content>JSP</body-content>
+  <small-icon />
+  <large-icon />
+  <description>Scrive l'info box</description>
+  <attribute>
+   <name>title</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+ <!-- infoMessage -->
+ <tag>
+  <name>infoMessage</name>
+  <tag-class>it.eg.sloth.webdesktop.tag.form.info.InfoMessageTag</tag-class>
+  <body-content>JSP</body-content>
+  <small-icon />
+  <large-icon />
+  <description>Scrive un messaggio</description>
+  <attribute>
+   <name>message</name>
+   <required>true</required>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <example />
+ </tag>
+
+
+</taglib>
