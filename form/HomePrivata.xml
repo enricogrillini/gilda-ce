@@ -23,10 +23,5 @@
   <Series Name="max" Description="Max" DataType="DECIMAL" />
  </SimpleChart>
 
- <Grid Name="MonitorLog" Table="LogElaborazioni">
-  <Text Name="Elaborazione" Description="Messaggio" DataType="STRING" />
-  <Text Name="DataFine" Description="Fine" DataType="DATETIME" Format="dd/MM HH:mm:ss" />
- </Grid>
-
 </Form>
 

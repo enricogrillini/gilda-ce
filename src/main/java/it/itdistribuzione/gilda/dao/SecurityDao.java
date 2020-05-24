@@ -12,6 +12,7 @@ import it.eg.sloth.db.datasource.DataTable;
 import it.eg.sloth.db.query.filteredquery.FilteredQuery;
 import it.eg.sloth.db.query.query.Query;
 import it.eg.sloth.framework.common.base.BaseFunction;
+import it.eg.sloth.framework.common.exception.FrameworkException;
 import it.eg.sloth.framework.security.Menu;
 import it.eg.sloth.framework.security.User;
 import it.eg.sloth.framework.security.VoiceType;
@@ -156,8 +157,11 @@ public class SecurityDao {
    * 
    * @param nominativo
    * @return
+   * @throws FrameworkException 
+   * @throws IOException 
+   * @throws SQLException 
    */
-  public static final Sec_utentiTableBean getTable(String nominativo) {
+  public static final Sec_utentiTableBean getTable(String nominativo) throws SQLException, IOException, FrameworkException {
     FilteredQuery query = new FilteredQuery(SQL_UTENTI);
     query.addFilter("upper(cognome) || upper(nome) like '%' || upper(?) || '%'", Types.VARCHAR, nominativo);
 
@@ -169,8 +173,11 @@ public class SecurityDao {
    * 
    * @param funzione
    * @return
+   * @throws FrameworkException 
+   * @throws IOException 
+   * @throws SQLException 
    */
-  public static Sec_dec_funzioniTableBean getFunzioni() {
+  public static Sec_dec_funzioniTableBean getFunzioni() throws SQLException, IOException, FrameworkException {
     Query query = new Query(SQL_FUNZIONI);
 
     return Sec_dec_funzioniTableBean.Factory.loadFromQuery(query, 10);
@@ -182,8 +189,11 @@ public class SecurityDao {
    * @param codRuolo
    * @param funzioneRoot
    * @return
+   * @throws FrameworkException 
+   * @throws IOException 
+   * @throws SQLException 
    */
-  public static final Sec_funzioniruoliTableBean getFunzioniRuoli(String codRuolo) {
+  public static final Sec_funzioniruoliTableBean getFunzioniRuoli(String codRuolo) throws SQLException, IOException, FrameworkException {
     Query query = new Query(SQL_FUNZIONI_RUOLO);
     query.addParameter(Types.VARCHAR, codRuolo);
 
@@ -194,8 +204,9 @@ public class SecurityDao {
    * Normalizza la tabella Sec_FunzioniRuoli
    * 
    * @throws SQLException
+ * @throws FrameworkException 
    */
-  public static void normalizzaFunzioniRuoli() throws SQLException {
+  public static void normalizzaFunzioniRuoli() throws SQLException, FrameworkException {
     Query query = new Query(SQL_NORMALIZZA_FUNZIONI_RUOLI);
     query.execute();
   }
@@ -204,8 +215,11 @@ public class SecurityDao {
    * Resituisce l'elenco delle voci del menu
    * 
    * @return
+   * @throws FrameworkException 
+   * @throws IOException 
+   * @throws SQLException 
    */
-  public static Sec_dec_menuTableBean getMenu() {
+  public static Sec_dec_menuTableBean getMenu() throws SQLException, IOException, FrameworkException {
     Query query = new Query(SQL_MENU);
 
     return Sec_dec_menuTableBean.Factory.loadFromQuery(query, 10);
@@ -216,8 +230,11 @@ public class SecurityDao {
    * 
    * @param codRuolo
    * @return
+   * @throws FrameworkException 
+   * @throws IOException 
+   * @throws SQLException 
    */
-  public static final Sec_menuruoliTableBean getMenuRuoli(String codRuolo) {
+  public static final Sec_menuruoliTableBean getMenuRuoli(String codRuolo) throws SQLException, IOException, FrameworkException {
     Query query = new Query(SQL_MENU_RUOLO);
 
     query.addParameter(Types.VARCHAR, codRuolo);
@@ -229,8 +246,9 @@ public class SecurityDao {
    * Normalizza la tabella Sec_MenuutenteRuoli
    * 
    * @throws SQLException
+ * @throws FrameworkException 
    */
-  public static void normalizzaMenuRuoli() throws SQLException {
+  public static void normalizzaMenuRuoli() throws SQLException, FrameworkException {
     Query query = new Query(SQL_NORMALIZZA_MENU_RUOLI);
     query.execute();
   }
@@ -239,8 +257,11 @@ public class SecurityDao {
    * Resituisce l'elenco delle voci del menu utente
    * 
    * @return
+   * @throws FrameworkException 
+   * @throws IOException 
+   * @throws SQLException 
    */
-  public static Sec_dec_menuutenteTableBean getMenuUtente() {
+  public static Sec_dec_menuutenteTableBean getMenuUtente() throws SQLException, IOException, FrameworkException {
     Query query = new Query(SQL_MENU_UTENTE);
 
     return Sec_dec_menuutenteTableBean.Factory.loadFromQuery(query, 10);
@@ -250,8 +271,9 @@ public class SecurityDao {
    * Normalizza la tabella Sec_Menuutenteruoli
    * 
    * @throws SQLException
+ * @throws FrameworkException 
    */
-  public static void normalizzaMenuUtenteRuoli() throws SQLException {
+  public static void normalizzaMenuUtenteRuoli() throws SQLException, FrameworkException {
     Query query = new Query(SQL_NORMALIZZA_MENU_UTENTE_RUOLI);
     query.execute();
   }
@@ -261,8 +283,11 @@ public class SecurityDao {
    * 
    * @param codRuolo
    * @return
+   * @throws FrameworkException 
+   * @throws IOException 
+   * @throws SQLException 
    */
-  public static final Sec_menuutenteruoliTableBean getMenuUtenteRuoli(String codRuolo) {
+  public static final Sec_menuutenteruoliTableBean getMenuUtenteRuoli(String codRuolo) throws SQLException, IOException, FrameworkException {
     Query query = new Query(SQL_MENU_UTENTE_RUOLO);
 
     query.addParameter(Types.VARCHAR, codRuolo);
@@ -270,7 +295,7 @@ public class SecurityDao {
     return Sec_menuutenteruoliTableBean.Factory.loadFromQuery(query);
   }
 
-  public static final Sec_profiliTableBean loadProfili(BigDecimal idUtente) {
+  public static final Sec_profiliTableBean loadProfili(BigDecimal idUtente) throws SQLException, IOException, FrameworkException {
     FilteredQuery query = new FilteredQuery(SQL_PROFILI);
     query.addFilter("p.idUtente = ?", Types.INTEGER, idUtente);
 
@@ -283,8 +308,11 @@ public class SecurityDao {
    * @param userid
    * @param password
    * @return
+   * @throws FrameworkException 
+   * @throws IOException 
+   * @throws SQLException 
    */
-  private static final Sec_utentiRowBean select(String userid, String password) {
+  private static final Sec_utentiRowBean select(String userid, String password) throws SQLException, IOException, FrameworkException {
     FilteredQuery query = new FilteredQuery(SQL_UTENTI);
     query.addFilter("upper(userid) = upper(?)", Types.VARCHAR, BaseFunction.nvl(userid, " "));
     query.addFilter("upper(password) = upper(?)", Types.VARCHAR, BaseFunction.nvl(password, " "));
@@ -292,7 +320,7 @@ public class SecurityDao {
     return Sec_utentiRowBean.Factory.load(query);
   }
 
-  public static final User login(String userid, String password) throws SQLException, IOException {
+  public static final User login(String userid, String password) throws SQLException, IOException, FrameworkException {
     User user = new User();
 
     Sec_utentiRowBean utentiRowBean = SecurityDao.select(userid, password);
@@ -333,8 +361,9 @@ public class SecurityDao {
    * @param user
    * @throws SQLException
    * @throws IOException 
+ * @throws FrameworkException 
    */
-  public static final void loadFunction(User user) throws SQLException, IOException {
+  public static final void loadFunction(User user) throws SQLException, IOException, FrameworkException {
     // Aggiorno le abilitazioni alle funzioni
     Query query = new Query(SQL_FUNZIONI_BY_UTENTE);
     query.addParameter(Types.INTEGER, user.getId());
@@ -350,8 +379,10 @@ public class SecurityDao {
    * 
    * @param user
    * @throws SQLException
+   * @throws FrameworkException 
+   * @throws IOException 
    */
-  public static final void loadMenu(User user) throws SQLException {
+  public static final void loadMenu(User user) throws SQLException, IOException, FrameworkException {
     // Aggiorno il menu
     Query query = new Query(SQL_MENU_BY_UTENTE);
     query.addParameter(Types.INTEGER, user.getId());
@@ -386,8 +417,10 @@ public class SecurityDao {
    * 
    * @param user
    * @throws SQLException
+   * @throws FrameworkException 
+   * @throws IOException 
    */
-  public static final void loadMenuUtente(User user) throws SQLException {
+  public static final void loadMenuUtente(User user) throws SQLException, IOException, FrameworkException {
     Query query = new Query(SQL_MENU_UTENTE_BY_UTENTE);
     query.addParameter(Types.INTEGER, user.getId());
 

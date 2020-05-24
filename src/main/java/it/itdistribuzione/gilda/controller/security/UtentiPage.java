@@ -99,7 +99,7 @@ public class UtentiPage extends UtentiAbstractPage {
     if (validate && getForm().getDetail().validate(getMessageList())) {
       getForm().getDetail().copyToDataSource(getForm().getMaster().getDataSource());
       
-      getRowBean().setFoto(getForm().getDetail().getFoto().getFileItem().get());
+      getRowBean().setFoto(getForm().getDetail().getFoto().getPartContent());
 
       if (getRowBean().getIdutente() == null) {
         getRowBean().setIdutente(SequencesDao.Sec_Seq_Idutente());
