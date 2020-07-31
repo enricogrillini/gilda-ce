@@ -2,7 +2,7 @@
 
 # Gilda
 
-Gilda rappresenta l'infrastruttura base per la realizzazione di intranet gestionali.
+Gilda rappresenta l'infrastruttura base per la realizzazione di intranet. Il progetto è supportato da (IT Distribuzione)[http://www.itdistribuzione.com/]
 
 - http://localhost:8080/gilda/swagger-ui/
 
