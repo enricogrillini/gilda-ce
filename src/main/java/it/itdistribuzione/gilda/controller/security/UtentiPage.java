@@ -2,6 +2,7 @@ package it.itdistribuzione.gilda.controller.security;
 
 import it.eg.sloth.db.datasource.RowStatus;
 import it.eg.sloth.form.grid.Grid;
+import it.eg.sloth.framework.common.base.BaseFunction;
 import it.eg.sloth.framework.common.localization.Localization;
 import it.itdistribuzione.gilda.dao.SecurityDao;
 import it.itdistribuzione.gilda.gen.Constant;
@@ -12,6 +13,7 @@ import it.itdistribuzione.gilda.gen.bean.tablebean.Sec_profiliTableBean;
 import it.itdistribuzione.gilda.gen.bean.tablebean.Sec_utentiTableBean;
 import it.itdistribuzione.gilda.gen.controllerBaseLogic.sicurezza.UtentiAbstractPage;
 import it.itdistribuzione.gilda.gen.dao.SequencesDao;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Project: gilda-ce
@@ -27,112 +29,116 @@ import it.itdistribuzione.gilda.gen.dao.SequencesDao;
  *
  * @author Enrico Grillini
  */
+@Slf4j
 public class UtentiPage extends UtentiAbstractPage {
 
-  @Override
-  public String getFunctionName() {
-    return Sec_dec_funzioniDecodeBean.SYSADMIN;
-  }
-
-  @Override
-  protected String getJspMasterName() {
-    return Constant.Jsp.UTENTI;
-  }
-
-  @Override
-  protected String getJspDetailName() {
-    return Constant.Jsp.UTENTI_DETAIL;
-  }
-
-  @Override
-  public void execReset() throws Exception {
-    getForm().getFiltri().clearData();
-  }
-
-  @Override
-  public void execInit() throws Exception {
-    execLoad();
-
-    getForm().getDetail().getLocalization().setDecodeMap(Localization.LOCALE_MAP);
-
-    getForm().getProfili().getCodRuolo().setDecodeMap(Sec_dec_ruoliDecodeBean.Factory.getFromDb());
-  }
-
-  @Override
-  public void execLoad() throws Exception {
-    if (getForm().getFiltri().postAndValidate(getWebRequest(), getMessageList())) {
-      String nominativo = getForm().getFiltri().getNominativo().getValue();
-
-      Sec_utentiTableBean sec_utentiTableBean = SecurityDao.getTable(nominativo);
-
-      getForm().getMaster().setDataSource(sec_utentiTableBean);
+    @Override
+    public String getFunctionName() {
+        return Sec_dec_funzioniDecodeBean.SYSADMIN;
     }
-  }
 
-  @Override
-  public void execLoadDetail() throws Exception {
-    getForm().getDetail().copyFromDataSource(getForm().getMaster().getDataSource());
-
-    if (getRowBean().getStatus() != RowStatus.INSERTED) {
-      getForm().getDetail().copyFromDataSource(getForm().getMaster().getDataSource());
-
-      Sec_profiliTableBean profiliTableBean = SecurityDao.loadProfili(getRowBean().getIdutente());
-      getForm().getProfili().setDataSource(profiliTableBean);
-    } else {
-      getForm().getDetail().clearData();
-
-      getForm().getProfili().setDataSource(null);
+    @Override
+    protected String getJspMasterName() {
+        return Constant.Jsp.UTENTI;
     }
-  }
 
-  @Override
-  public void execLoadSubDetail(Grid<?> grid) throws Exception {
-    if (grid == null || grid == getForm().getProfili()) {
-      getForm().getProfili().copyFromDataSource();
+    @Override
+    protected String getJspDetailName() {
+        return Constant.Jsp.UTENTI_DETAIL;
     }
-  }
 
-  @Override
-  public boolean execPostDetail(boolean validate) throws Exception {
-    getForm().getDetail().post(getWebRequest());
-
-    if (validate && getForm().getDetail().validate(getMessageList())) {
-      getForm().getDetail().copyToDataSource(getForm().getMaster().getDataSource());
-      
-      getRowBean().setFoto(getForm().getDetail().getFoto().getPartContent());
-
-      if (getRowBean().getIdutente() == null) {
-        getRowBean().setIdutente(SequencesDao.Sec_Seq_Idutente());
-      }
-      return true;
-    } else {
-      return !validate;
+    @Override
+    public void execReset() throws Exception {
+        getForm().getFiltri().clearData();
     }
-  }
 
-  @Override
-  public boolean execPostSubDetail(Grid<?> grid, boolean validate) throws Exception {
-    boolean result = true;
+    @Override
+    public void execInit() throws Exception {
+        execLoad();
 
-    if (getForm().getTabs().getCurrentTab() == getForm().getTabs().getTabProfili() && (grid == null || grid == getForm().getProfili()) && getForm().getProfili().size() > 0) {
-      getForm().getProfili().post(getWebRequest());
+        getForm().getDetail().getLocalization().setDecodeMap(Localization.LOCALE_MAP);
 
-      if (validate && getForm().getProfili().validate(getMessageList())) {
-        Sec_profiliRowBean rowBean = getForm().getProfili().getDataSource().getRow();
-        getForm().getProfili().copyToDataSource();
+        getForm().getProfili().getCodRuolo().setDecodeMap(Sec_dec_ruoliDecodeBean.Factory.getFromDb());
+    }
 
-        rowBean.setIdutente(getRowBean().getIdutente());
+    @Override
+    public void execLoad() throws Exception {
+        if (getForm().getFiltri().postAndValidate(getWebRequest(), getMessageList())) {
+            String nominativo = getForm().getFiltri().getNominativo().getValue();
 
-        if (rowBean.getIdprofilo() == null) {
-          rowBean.setIdprofilo(SequencesDao.Seq_Idprofilo());
+            Sec_utentiTableBean sec_utentiTableBean = SecurityDao.getTable(nominativo);
+
+            getForm().getMaster().setDataSource(sec_utentiTableBean);
+        }
+    }
+
+    @Override
+    public void execLoadDetail() throws Exception {
+        getForm().getDetail().copyFromDataSource(getForm().getMaster().getDataSource());
+
+        if (getRowBean().getStatus() != RowStatus.INSERTED) {
+            getForm().getDetail().copyFromDataSource(getForm().getMaster().getDataSource());
+
+            Sec_profiliTableBean profiliTableBean = SecurityDao.loadProfili(getRowBean().getIdutente());
+            getForm().getProfili().setDataSource(profiliTableBean);
+        } else {
+            getForm().getDetail().clearData();
+            getForm().getProfili().setDataSource(null);
+        }
+    }
+
+    @Override
+    public void execLoadSubDetail(Grid<?> grid) throws Exception {
+        if (grid == null || grid == getForm().getProfili()) {
+            getForm().getProfili().copyFromDataSource();
+        }
+    }
+
+    @Override
+    public boolean execPostDetail(boolean validate) throws Exception {
+        getForm().getDetail().post(getWebRequest());
+
+        if (validate && getForm().getDetail().validate(getMessageList())) {
+            getForm().getDetail().copyToDataSource(getForm().getMaster().getDataSource());
+
+            log.info("getPartFileName - {}", BaseFunction.isBlank(getForm().getDetail().getFoto().getPartFileName()));
+            if (!BaseFunction.isBlank(getForm().getDetail().getFoto().getPartFileName())) {
+                log.info("setFoto");
+                getRowBean().setFoto(getForm().getDetail().getFoto().getPartContent());
+            }
+
+            if (getRowBean().getIdutente() == null) {
+                getRowBean().setIdutente(SequencesDao.Sec_Seq_Idutente());
+            }
+            return true;
+        } else {
+            return !validate;
+        }
+    }
+
+    @Override
+    public boolean execPostSubDetail(Grid<?> grid, boolean validate) throws Exception {
+        boolean result = true;
+
+        if (getForm().getTabs().getCurrentTab() == getForm().getTabs().getTabProfili() && (grid == null || grid == getForm().getProfili()) && getForm().getProfili().size() > 0) {
+            getForm().getProfili().post(getWebRequest());
+
+            if (validate && getForm().getProfili().validate(getMessageList())) {
+                Sec_profiliRowBean rowBean = getForm().getProfili().getDataSource().getRow();
+                getForm().getProfili().copyToDataSource();
+
+                rowBean.setIdutente(getRowBean().getIdutente());
+
+                if (rowBean.getIdprofilo() == null) {
+                    rowBean.setIdprofilo(SequencesDao.Seq_Idprofilo());
+                }
+
+            } else {
+                result = !validate;
+            }
         }
 
-      } else {
-        result = !validate;
-      }
+        return result;
     }
-
-    return result;
-  }
 
 }

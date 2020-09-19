@@ -4,7 +4,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import it.eg.sloth.form.NavigationConst;
 import it.eg.sloth.framework.common.base.BaseFunction;
-import it.itdistribuzione.gilda.common.application.HistoryApplication;
 import it.itdistribuzione.gilda.gen.Constant;
 import it.itdistribuzione.gilda.gen.bean.decode.Sec_dec_funzioniDecodeBean;
 import it.itdistribuzione.gilda.gen.controllerBaseLogic.SearchAbstractPage;
@@ -18,9 +17,9 @@ import lombok.extern.slf4j.Slf4j;
  * the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
  * <p>
  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
  * <p>
- * You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  * @author Enrico Grillini
  */
@@ -35,10 +34,6 @@ public class SearchPage extends SearchAbstractPage {
   @Override
   protected String getJspName() {
     return Constant.Jsp.SEARCH;
-  }
-
-  private HistoryApplication getHistoryApplication() {
-    return (HistoryApplication) getWebDesktopDto().getNotificationCenter().getApplication(HistoryApplication.NAME);
   }
 
   public boolean defaultNavigation() throws Exception {
@@ -73,11 +68,9 @@ public class SearchPage extends SearchAbstractPage {
     if (!BaseFunction.isBlank(value)) {
       // Go to function
       setModelAndView(new ModelAndView("redirect:" + data));
-      getHistoryApplication().addFirstMessage(text, value);
     } else if (!BaseFunction.isBlank(text)) {
-      getHistoryApplication().addFirstMessage("Search: " + text, Constant.Page.SEARCH_PAGE + "?searchLabel=" + text);
       getWebDesktopDto().getSearchManager().applySearch(text, 100);
-      
+
       log.info("SuggestionList: {}", getWebDesktopDto().getSearchManager().getSuggestionList());
     }
   }

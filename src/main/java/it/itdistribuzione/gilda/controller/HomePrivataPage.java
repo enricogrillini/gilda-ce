@@ -34,10 +34,10 @@ public class HomePrivataPage extends HomePrivataAbstractPage {
 
   @Override
   public void execInit() throws Exception {
-    
+
     // Aforismi
     getForm().getAforismi().copyFromDataSource(AforismiSingleton.getInstance().getAforismiRowBean());
-   
+    
     // System monitor
     getForm().getMonitorDataLine().setDataTable(MonitorSingleton.getInstance().getStatistics());
 

@@ -52,7 +52,7 @@ public class FunzioniPage extends FunzioniAbstractPage {
   @Override
   public boolean execCommit() throws Exception {
     if (super.execCommit()) {
-      SecurityDao.normalizzaFunzioniRuoli();
+      SecurityDao.normalizzaSicurezza();
       return true;
     } else {
       return false;
