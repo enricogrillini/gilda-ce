@@ -1,12 +1,10 @@
 
 
-# Gilda
+# ![favicon](src\main\webapp\img\doc.png) Gilda
 
-Gilda rappresenta l'infrastruttura base per la realizzazione di intranet. Il progetto è supportato da [IT Distribuzione](http://www.itdistribuzione.com/)
+Gilda rappresenta l'infrastruttura base per la realizzazione di intranet gestionali.
 
 - http://localhost:8080/gilda/swagger-ui/
-
-# maven sloth plugin
 
 ```shell
 # Con lo schema di default 
