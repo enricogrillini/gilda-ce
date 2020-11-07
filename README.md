@@ -1,6 +1,6 @@
 
 
-# ![favicon](src\main\webapp\img\doc.png) Gilda
+# ![logo](src/main/webapp/img/doc.png) Gilda
 
 Gilda rappresenta l'infrastruttura base per la realizzazione di intranet gestionali.
 
