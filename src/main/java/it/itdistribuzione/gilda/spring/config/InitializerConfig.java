@@ -62,7 +62,7 @@ public class InitializerConfig {
         .driverClassName(driverClassName)
         .url(url)
         .username(username)
-        .password(username)
+        .password(password)
         .build();
   }
 
@@ -76,7 +76,6 @@ public class InitializerConfig {
       ConfigSingleton.getInstance().addProperty(key.toString(), env.getProperty(key.toString()));
     }
 
-
     // Inizializzazione del data source
     log.info("Init: DataSource");
     DataConnectionManager.getInstance().registerDataSource(getDataSource());
@@ -84,5 +83,6 @@ public class InitializerConfig {
     // Monitor
     log.info("Init: Monitor");
     MonitorSingleton.getInstance().start();
+
   }
 }

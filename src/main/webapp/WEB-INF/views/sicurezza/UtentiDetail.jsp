@@ -22,16 +22,12 @@
      </grp:row>
      <grp:row>
       <form:lblControl name="<%=UtentiForm.Detail.USERID%>" />
-      <form:lblControl name="<%=UtentiForm.Detail.PASSWORD%>" />
-     </grp:row>
-     <grp:row>
       <form:lblControl name="<%=UtentiForm.Detail.EMAIL%>" />
-      <form:lblControl name="<%=UtentiForm.Detail.EMAILPASSWORD%>" />
       <form:lblControl name="<%=UtentiForm.Detail.LOCALIZATION%>" />
      </grp:row>
      <grp:row>
-      <form:lblControl name="<%=UtentiForm.Detail.FOTO %>" />
-     </grp:row>     
+      <form:lblControl name="<%=UtentiForm.Detail.FOTO%>" />
+     </grp:row>
     </div>
 
     <div class="card-footer">
@@ -40,12 +36,42 @@
 
     <div class="card-body">
      <form:tabSheet name="<%=UtentiForm.Tabs.NAME%>">
+
+      <%-- Profili --%>
       <form:tab name="<%=UtentiForm.Tabs.TAB_PROFILI%>">
-       <grp:row>
-        <form:grid name="<%=UtentiForm.Profili.NAME%>" />
-        <form:subMasterDetailBar name="<%=UtentiForm.Profili.NAME%>" />
-       </grp:row>
+       <div class="card">
+        <div class="card-body">
+         <form:grid name="<%=UtentiForm.Profili.NAME%>" />
+        </div>
+        <div class="card-footer p-1">
+         <form:subMasterDetailBar name="<%=UtentiForm.Profili.NAME%>" />
+        </div>
+       </div>
       </form:tab>
+
+      <%-- Utility --%>
+      <form:tab name="<%=UtentiForm.Tabs.TAB_UTILITY%>">
+       <div class="card">
+        <div class="card-body">
+         <grp:row>
+          <form:lblControl name="<%=UtentiForm.Utility.PASSWORD%>" />
+          <form:lblControl name="<%=UtentiForm.Utility.CONFERMA_PASSWORD%>" />
+          <grp:cell>
+           <form:control name="<%=UtentiForm.Utility.RESET_PASSWORD%>" />
+          </grp:cell>
+         </grp:row>
+         <br />
+
+         <div class="alert alert-info">
+          <p class="mb-0 small">
+           La password deve essere lunga tra <strong>8 e 16</strong> caratteri e contenere <strong>lettere</strong> (a-z, A-Z) o <strong>numeri</strong> (0-9).
+          </p>
+         </div>
+
+        </div>
+       </div>
+      </form:tab>
+
      </form:tabSheet>
     </div>
    </div>

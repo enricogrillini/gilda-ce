@@ -12,10 +12,28 @@
  *
  * @author Enrico Grillini
  */
+.noselect, .pointer {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+.pointer {
+	cursor: pointer;
+}
+
 .section {
 	border-bottom: 1pt solid #858796;
 	padding-bottom: 0.2em;
 	margin-bottom: 0.6em
+}
+
+.font-weight-500 {
+	font-weight: 500;
 }
 
 /* COMBOBOX */
@@ -46,7 +64,6 @@ option.notValid {
 
 .autocomplete-suggestion {
 	padding: 2px 5px;
-	white-space: nowrap;
 	overflow: hidden;
 	line-height: 18px;
 	cursor: pointer;
@@ -70,7 +87,15 @@ option.notValid {
 	border-bottom: 1px solid #000;
 }
 
-/* Table closeable */
+/* Wiki */
+blockquote {
+	margin-left: .5em;
+	padding-left: .5em;
+	border-left: 2px solid #cccccc;
+	color: #666666
+}
+
+/* Table - Closeable */
 .tableDetail .fa {
 	transition: .3s transform ease-in-out;
 	cursor: pointer;
@@ -90,6 +115,11 @@ option.notValid {
 .card-header .collapsed.fa {
 	transform: rotate(90deg);
 	cursor: pointer;
+}
+
+/* Carousel */
+.carousel-control-next, .carousel-control-prev {
+	width: auto;
 }
 
 /* Avatar */
@@ -158,12 +188,35 @@ option.notValid {
 	font-weight: 600;
 }
 
-/* formattazione per calendario */
-.calendario {
+/* Calendario */
+.calendar-month, .calendar-week {
 	width: 100%;
-	border-collapse: collapse;
 }
 
-.calContainer {
-	min-height: 90px
+.calendar-week td {
+	padding: 0em 0.8em 0.2em 0.8em;
+	width: 100%;
+}
+
+.calendar-month th {
+	font-weight: 500;
+	padding: 0em 0.3em;
+}
+
+.calendar-month td {
+	vertical-align: top;
+	padding: 0em 0.3em 0.2em 0.3em;
+	width: 14%;
+}
+
+.calendar-header {
+	border-top: solid 1px #e3e6f0;
+	padding: 0.2em;
+	margin-bottom: 0.3em;
+	font-weight: 500;
+}
+
+.calendar-container {
+	padding-left: 0.2em;
+	min-height: 80px;
 }

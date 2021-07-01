@@ -48,7 +48,7 @@
           <hr>
           <div class="text-center">
            <p>
-            <small>Project <a href="https://github.com/enricogrillini/gilda-ce" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="bottom" data-original-title="Project on GitHub">Project: Gilda</a> - Version <%=Constant.VERSION%></small>
+            <small><a href="https://github.com/enricogrillini/gilda-ce" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="bottom" data-original-title="Project on GitHub">Project: Gilda</a> - Version <%=Constant.VERSION%></small>
            </p>
           </div>
           <div class="text-center">

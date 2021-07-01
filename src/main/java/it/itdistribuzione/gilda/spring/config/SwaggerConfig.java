@@ -3,8 +3,6 @@ package it.itdistribuzione.gilda.spring.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.google.common.base.Predicates;
-
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -38,7 +36,7 @@ public class SwaggerConfig {
                 .apiInfo(apiInfo())
                 .useDefaultResponseMessages(false)
                 .select()
-                .apis(Predicates.not(RequestHandlerSelectors.basePackage("org.springframework.boot")))
+                .apis(RequestHandlerSelectors.basePackage("it.itdistribuzione.gilda"))
                 .paths(PathSelectors.any())
                 .build();
     }
