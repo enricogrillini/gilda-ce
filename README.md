@@ -1,13 +1,16 @@
+# ![logo](src/main/webapp/img/favicon.png) Gilda
 
+Gilda rappresenta l'infrastruttura base per la realizzazione di intranet. Il progetto è supportato da [IT Distribuzione](http://www.itdistribuzione.com/)
 
-# Gilda
+- http://localhost:8082/
+- http://localhost:8082/swagger-ui/index.html#/
 
-Gilda rappresenta l'infrastruttura base per la realizzazione di intranet gestionali.
+### Avvio
+```shell
+mvn spring-boot:run
+```
 
-- http://localhost:8082/swagger-ui.html#/
-
-# maven sloth plugin
-
+### Note
 ```shell
 # Con lo schema di default 
 mvn sloth:refreshdb -DgenPackage=it.itdistribuzione.gilda.gen
@@ -16,22 +19,61 @@ mvn sloth:refreshdb -DgenPackage=it.itdistribuzione.gilda.gen
 mvn sloth:refreshdb -DdbSchema=<dbSchema.xml>
 ```
 
+### Configurazione maven
 
-# Oracle JDBC Driver
-Oracle non ha rilasciato pubblicamente i driver JDBC su repo Maven. Per utilizzare i driver Oracle è necessario scaricarli dal [sito](https://www.oracle.com/database/technologies/jdbcdriver-ucp-downloads.html)
+Per poter utilizzare gli artefatti del framework è necessaria la seguente configurazione maven (file .m2/settings.xml).
 
-## Per Oracle 11g
-
-```shell
-mvn install:install-file "-Dfile=ojdbc6.jar" "-DgroupId=com.oracle" "-DartifactId=ojdbc6" "-Dversion=11.2.0.4" "-Dpackaging=jar"
-```
-
-Nel pom aggiungere la dipendenza:
+Nota: sostituire ###USERNAME### ###TOKEN### con le proprie credenziali git hub
 
 ```xml
-<dependency>
-     <groupId>com.oracle</groupId>
-     <artifactId>ojdbc6</artifactId>
-     <version>11.2.0.4</version>
-</dependency>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+ <activeProfiles>
+  <activeProfile>github</activeProfile>
+ </activeProfiles>
+
+ <profiles>
+  <profile>
+   <id>github</id>
+   <repositories>
+    <repository>
+     <id>central</id>
+     <url>https://repo1.maven.org/maven2</url>
+     <releases>
+      <enabled>true</enabled>
+     </releases>
+     <snapshots>
+      <enabled>true</enabled>
+     </snapshots>
+    </repository>
+    <repository>
+     <id>github-sloth-framework</id>
+     <name>GitHub enricogrillini Apache Maven Packages</name>
+     <url>https://maven.pkg.github.com/enricogrillini/sloth-framework</url>
+    </repository>
+   </repositories>
+   <pluginRepositories>
+    <pluginRepository>
+     <id>github-sloth-plugin</id>
+     <name>GitHub enricogrillini Apache Maven Packages</name>
+     <url>https://maven.pkg.github.com/enricogrillini/sloth-plugin</url>
+    </pluginRepository>
+   </pluginRepositories>
+  </profile>
+ </profiles>
+
+ <servers>
+  <server>
+   <id>github-sloth-framework</id>
+   <username>###USERNAME###</username>
+   <password>###TOKEN###</password>
+  </server>
+  <server>
+   <id>github-sloth-plugin</id>
+   <username>###USERNAME###</username>
+   <password>###TOKEN###</password>
+  </server>
+ </servers>
+</settings>
 ```

@@ -518,7 +518,24 @@
                 <Constants/>
             </Table>
         </Tables>
-        <Views/>
+        <Views>
+            <View Name="View_Sec_Utenti">
+                <Source>Select "IDUTENTE","NOME","COGNOME","USERID","PASSWORD","EMAIL","EMAILPASSWORD","LOCALE","FOTO" from sec_utenti</Source>
+                <Columns>
+                    <Column Nullable="false" Type="NUMBER(38,0)" Position="0" DataLength="22" Name="Idutente"/>
+                    <Column Nullable="true" Type="VARCHAR2(100)" Position="1" DataLength="100" Name="Nome"/>
+                    <Column Nullable="true" Type="VARCHAR2(100)" Position="2" DataLength="100" Name="Cognome"/>
+                    <Column Nullable="true" Type="VARCHAR2(10)" Position="3" DataLength="10" Name="Userid"/>
+                    <Column Nullable="true" Type="VARCHAR2(10)" Position="4" DataLength="10" Name="Password"/>
+                    <Column Nullable="true" Type="VARCHAR2(100)" Position="5" DataLength="100" Name="Email"/>
+                    <Column Nullable="true" Type="VARCHAR2(100)" Position="6" DataLength="100" Name="Emailpassword"/>
+                    <Column Nullable="true" Type="VARCHAR2(5)" Position="7" DataLength="5" Name="Locale"/>
+                    <Column Nullable="true" Type="BLOB" Position="8" DataLength="4000" Name="Foto"/>
+                </Columns>
+                <Triggers/>
+                <Constants/>
+            </View>
+        </Views>
         <Packages>
             <Package Name="LIB_SICUREZZA">
                 <SourceSpec>Package Lib_Sicurezza As

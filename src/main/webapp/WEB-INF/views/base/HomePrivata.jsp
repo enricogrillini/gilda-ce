@@ -27,31 +27,8 @@
     </div>
    </div>
 
-   <div class="row">
-    <!-- Line Chart -->
-    <div class="col-6">
-     <div class="card shadow mb-4">
-      <div class="card-body">
-       <form:chartCanvas name="<%=HomePrivataForm.MonitorDataLine.NAME%>" />
-      </div>
-     </div>
-    </div>
-
-    <!-- Bar Chart -->
-    <div class="col-6">
-     <div class="card shadow mb-4">
-      <div class="card-body">
-       <form:chartCanvas name="<%=HomePrivataForm.MonitorDataBar.NAME%>" />
-      </div>
-     </div>
-    </div>
-
-   </div>
-
   </wd:content>
  </wd:page>
- <form:chartScript name="<%=HomePrivataForm.MonitorDataLine.NAME%>" />
- <form:chartScript name="<%=HomePrivataForm.MonitorDataBar.NAME%>" />
 </wd:body>
 
 </wd:html>

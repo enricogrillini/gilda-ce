@@ -1,6 +1,10 @@
 package it.itdistribuzione.gilda.common.singleton;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 import it.eg.sloth.framework.FrameComponent;
+import it.eg.sloth.framework.common.exception.FrameworkException;
 import it.itdistribuzione.gilda.gen.bean.tablebean.AforismiRowBean;
 import it.itdistribuzione.gilda.gen.bean.tablebean.AforismiTableBean;
 
@@ -25,12 +29,12 @@ public class AforismiSingleton extends FrameComponent {
 
   private static AforismiSingleton instance = null;
 
-  private AforismiSingleton() {
+  private AforismiSingleton() throws SQLException, IOException, FrameworkException {
     aforismiTableBean = AforismiTableBean.Factory.load(null);
     i = 0;
   }
 
-  public static AforismiSingleton getInstance() {
+  public static AforismiSingleton getInstance() throws SQLException, IOException, FrameworkException {
     if (instance == null) {
       instance = new AforismiSingleton();
     }

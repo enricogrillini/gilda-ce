@@ -24,16 +24,6 @@
    <required>false</required>
    <rtexprvalue>true</rtexprvalue>
   </attribute>
-  <attribute>
-   <name>style</name>
-   <required>false</required>
-   <rtexprvalue>true</rtexprvalue>
-  </attribute>
-  <attribute>
-   <name>classname</name>
-   <required>false</required>
-   <rtexprvalue>true</rtexprvalue>
-  </attribute>
   <example />
  </tag>
 
@@ -76,16 +66,6 @@
    <required>true</required>
    <rtexprvalue>true</rtexprvalue>
   </attribute>
-  <attribute>
-   <name>style</name>
-   <required>false</required>
-   <rtexprvalue>true</rtexprvalue>
-  </attribute>
-  <attribute>
-   <name>classname</name>
-   <required>false</required>
-   <rtexprvalue>true</rtexprvalue>
-  </attribute>
   <example />
  </tag>
 
@@ -106,44 +86,12 @@
    <rtexprvalue>true</rtexprvalue>
   </attribute>
   <attribute>
-   <name>style</name>
-   <required>false</required>
-   <rtexprvalue>true</rtexprvalue>
-  </attribute>
-  <attribute>
-   <name>classname</name>
-   <required>false</required>
-   <rtexprvalue>true</rtexprvalue>
-  </attribute>
-
-  <attribute>
    <name>controlWidth</name>
    <required>false</required>
    <rtexprvalue>true</rtexprvalue>
   </attribute>
   <attribute>
-   <name>controlStyle</name>
-   <required>false</required>
-   <rtexprvalue>true</rtexprvalue>
-  </attribute>
-  <attribute>
-   <name>controlClassname</name>
-   <required>false</required>
-   <rtexprvalue>true</rtexprvalue>
-  </attribute>
-
-  <attribute>
    <name>labelWidth</name>
-   <required>false</required>
-   <rtexprvalue>true</rtexprvalue>
-  </attribute>
-  <attribute>
-   <name>labelStyle</name>
-   <required>false</required>
-   <rtexprvalue>true</rtexprvalue>
-  </attribute>
-  <attribute>
-   <name>labelClassname</name>
    <required>false</required>
    <rtexprvalue>true</rtexprvalue>
   </attribute>
@@ -177,16 +125,6 @@
   </attribute>
   <attribute>
    <name>detailName</name>
-   <required>false</required>
-   <rtexprvalue>true</rtexprvalue>
-  </attribute>
-  <attribute>
-   <name>style</name>
-   <required>false</required>
-   <rtexprvalue>true</rtexprvalue>
-  </attribute>
-  <attribute>
-   <name>classname</name>
    <required>false</required>
    <rtexprvalue>true</rtexprvalue>
   </attribute>
@@ -226,16 +164,6 @@
   <attribute>
    <name>detailName</name>
    <required>true</required>
-   <rtexprvalue>true</rtexprvalue>
-  </attribute>
-  <attribute>
-   <name>style</name>
-   <required>false</required>
-   <rtexprvalue>true</rtexprvalue>
-  </attribute>
-  <attribute>
-   <name>classname</name>
-   <required>false</required>
    <rtexprvalue>true</rtexprvalue>
   </attribute>
   <example />

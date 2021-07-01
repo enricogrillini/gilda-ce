@@ -55,7 +55,7 @@ public class MenuPage extends MenuAbstractPage {
   @Override
   public boolean execCommit() throws Exception {
     if (super.execCommit()) {
-      SecurityDao.normalizzaMenuRuoli();
+      SecurityDao.normalizzaSicurezza();
       return true;
     } else {
       return false;

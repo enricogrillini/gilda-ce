@@ -11,8 +11,8 @@
 
 <wd:head />
 
-<wd:body className="bg-gradient-primary">
- <form action="HomePubblicaPage.html" method="post">
+<body id="page-top" class="bg-gradient-primary">
+ <form action="/sec/login" method="post">
   <wd:checkMessage />
 
   <div class="container">
@@ -37,7 +37,7 @@
           </div>
 
           <div class="form-group">
-           <input type="text" class="form-control form-control-user" id="userid" name="userid" placeholder="Userid">
+           <input type="text" class="form-control form-control-user" id="userid" name="username" placeholder="Userid">
           </div>
           <div class="form-group">
            <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
@@ -48,7 +48,7 @@
           <hr>
           <div class="text-center">
            <p>
-            <small>Project <a href="https://github.com/enricogrillini/gilda-ce" target="_blank" data-toggle="tooltip" data-placement="bottom" data-original-title="Project on GitHub">Project: Gilda-ce</a> - Version <%=Constant.VERSION%></small>
+            <small><a href="https://github.com/enricogrillini/gilda-ce" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="bottom" data-original-title="Project on GitHub">Project: Gilda</a> - Version <%=Constant.VERSION%></small>
            </p>
           </div>
           <div class="text-center">
@@ -58,7 +58,7 @@
           </div>
           <div class="text-center">
            <p>
-            <small><a href="https://github.com/enricogrillini/gilda-ce/blob/master/LICENSE" target="_blank" data-toggle="tooltip" data-placement="bottom" data-original-title="Licence">Copyright (C) 2019-2020 Enrico Grillini</a></small>
+            <small><a href="https://github.com/enricogrillini/gilda-ce/blob/master/LICENSE" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="bottom" data-original-title="Licence">Copyright (C) 2019-2020 Enrico Grillini</a></small>
            </p>
           </div>          
          </div>
@@ -77,6 +77,6 @@
  <script src="../vendor/jquery-autocomplete/jquery.autocomplete.js"></script>
  <script src="../js/sb-admin-2.min.js"></script>
  <script src="../js/web-desktop.js"></script>
-</wd:body>
+</body>
 
 </wd:html>

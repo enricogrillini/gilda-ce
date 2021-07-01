@@ -1,6 +1,6 @@
 //var singleColor = ["#FF5252","#536DFE","#4CAF50","#F57C00", "#FF4081"]
-var color = [ "#4e73df", "#1cc88a", "#36b9cc", "#f6c23e", "#e74a3b", "#858796" ];
-var color2 = [ "#5668E2", "#8A56E2", "#CF56E2", "#E256AE", "#E25668", "#E28956", "#E2CF56", "#AEE256", "#68E256", "#56E289", "#56E2CF", "#56AEE2" ];
+var color = ["#4e73df", "#1cc88a", "#36b9cc", "#f6c23e", "#e74a3b", "#858796"];
+var color2 = ["#5668E2", "#8A56E2", "#CF56E2", "#E256AE", "#E25668", "#E28956", "#E2CF56", "#AEE256", "#68E256", "#56E289", "#56E2CF", "#56AEE2"];
 
 // Utilità - colorLuminance
 function colorLuminance(hex, lum) {
@@ -53,159 +53,82 @@ function numberFormatter(number, format) {
 function chart(chartId, chartData) {
   var ctx = document.getElementById(chartId);
   
+
   chartData.options.maintainAspectRatio = false;
   chartData.options.layout = {
-    padding : {
-      left : 10,
-      right : 25,
-      top : 10,
-      bottom : 0
+    padding: {
+      left: 10,
+      right: 25,
+      top: 10,
+      bottom: 0
     }
   };
 
   chartData.options.tooltips = {
-    backgroundColor : "rgb(255,255,255)",
-    bodyFontColor : "#858796",
-    titleMarginBottom : 10,
-    titleFontColor : '#6e707e',
-    titleFontSize : 14,
-    borderColor : '#dddfeb',
-    borderWidth : 1,
-    xPadding : 15,
-    yPadding : 15,
-    displayColors : false,
-    intersect : false,
-    mode : 'index',
-    caretPadding : 10,
-    callbacks : {
-      label : function(tooltipItem, chart) {
-        var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-        return datasetLabel + ': ' + numberFormatter(tooltipItem.yLabel, chartData.additionalInfo.numerFormat);
+    backgroundColor: "rgb(255,255,255)",
+    bodyFontColor: "#858796",
+    titleMarginBottom: 10,
+    titleFontColor: '#6e707e',
+    titleFontSize: 14,
+    borderColor: '#dddfeb',
+    borderWidth: 1,
+    xPadding: 15,
+    yPadding: 15,
+    displayColors: true,
+    intersect: false,
+    mode: 'index',
+    caretPadding: 10,
+    callbacks: {
+      label: function(tooltipItem, chart) {
+        var datasetIndex = tooltipItem.datasetIndex;
+        var index = tooltipItem.index;
+
+        if (chartData.type == "bar" || chartData.type == "line" || chartData.type == "radar") {
+          var label = chart.datasets[datasetIndex].label + "";
+        } else {
+          var label = chart.labels[index] + "";          
+        }
+        var data = chart.datasets[datasetIndex].data[index];
+
+        return " " + label + ': ' + numberFormatter(data, chartData.additionalInfo.numerFormat);
       }
     }
   }
-  
-  chartData.options.scales = {
-      xAxes : [ {
-        time : {
-          unit : 'date'
+
+  if (chartData.type == "bar" || chartData.type == "line") {
+    chartData.options.scales = {
+      xAxes: [{
+        time: {
+          unit: 'date'
         },
-        gridLines : {
-          display : false,
-          drawBorder : false
+        gridLines: {
+          display: false,
+          drawBorder: false
         },
-        ticks : {
-          maxTicksLimit : 7
+        ticks: {
+          maxTicksLimit: 7
         }
-      } ],
-      yAxes : [ {
-        ticks : {
-          min : 0,
-          maxTicksLimit : 5,
-          padding : 10,
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          maxTicksLimit: 5,
+          padding: 10,
           // Include a dollar sign in the ticks
-          callback : function(value, index, values) {
+          callback: function(value, index, values) {
             return numberFormatter(value, chartData.additionalInfo.numerFormat);
           }
         },
-        gridLines : {
-          color : "rgb(234, 236, 244)",
-          zeroLineColor : "rgb(234, 236, 244)",
-          drawBorder : false,
-          borderDash : [ 2 ],
-          zeroLineBorderDash : [ 2 ]
+        gridLines: {
+          color: "rgb(234, 236, 244)",
+          zeroLineColor: "rgb(234, 236, 244)",
+          drawBorder: false,
+          borderDash: [2],
+          zeroLineBorderDash: [2]
         }
-      } ]
+      }]
     };
+  }
 
   new Chart(ctx, chartData);
 }
-
-/*
-
-function lineChart(chartId, chartData) {
-  var ctx = document.getElementById(chartId);
-
-  var aaa = {
-    type : 'line',
-    data : chartData,
-    options : {
-      maintainAspectRatio : false,
-      layout : {
-        padding : {
-          left : 10,
-          right : 25,
-          top : 10,
-          bottom : 0
-        }
-      },
-      tooltips : {
-        backgroundColor : "rgb(255,255,255)",
-        bodyFontColor : "#858796",
-        titleMarginBottom : 10,
-        titleFontColor : '#6e707e',
-        titleFontSize : 14,
-        borderColor : '#dddfeb',
-        borderWidth : 1,
-        xPadding : 15,
-        yPadding : 15,
-        displayColors : false,
-        intersect : false,
-        mode : 'index',
-        caretPadding : 10,
-        callbacks : {
-          label : function(tooltipItem, chart) {
-            var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-            return datasetLabel + ': ' + numberFormatter(tooltipItem.yLabel, chartData.additionalInfo.numerFormat);
-          }
-        }
-      }
-    }
-  }
-
-  aaa.options.title = {
-    display : true,
-    text : 'Chart.js Line Chart'
-  };
-
-  aaa.options.legend = {
-    position : "bottom"
-  };
-
-  aaa.options.scales = {
-    xAxes : [ {
-      time : {
-        unit : 'date'
-      },
-      gridLines : {
-        display : false,
-        drawBorder : false
-      },
-      ticks : {
-        maxTicksLimit : 7
-      }
-    } ],
-    yAxes : [ {
-      ticks : {
-        min : 0,
-        maxTicksLimit : 5,
-        padding : 10,
-        // Include a dollar sign in the ticks
-        callback : function(value, index, values) {
-          return numberFormatter(value, chartData.additionalInfo.numerFormat);
-        }
-      },
-      gridLines : {
-        color : "rgb(234, 236, 244)",
-        zeroLineColor : "rgb(234, 236, 244)",
-        drawBorder : false,
-        borderDash : [ 2 ],
-        zeroLineBorderDash : [ 2 ]
-      }
-    } ]
-  };
-
-  new Chart(ctx, aaa);
-
-}
-*/

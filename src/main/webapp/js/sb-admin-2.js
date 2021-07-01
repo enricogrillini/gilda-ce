@@ -9,17 +9,36 @@
       $('.sidebar .collapse').collapse('hide');
     };
   });
-
-  // Close any open menu accordions when window is resized below 768px
+  
+  // Close any open menu accordions when window is resized below 1200px
   $(window).resize(function() {
-    if ($(window).width() < 768) {
+    if ($(window).width() < 1200) {
+      $('.sidebar .collapse').collapse('hide');
+      $(".sidebar").addClass("toggled");
+    };
+    
+    // Toggle the side navigation when window is resized below 768px
+    if ($(window).width() < 768 && !$(".sidebar").hasClass("toggled")) {
+      $("body").addClass("sidebar-toggled");
+      $(".sidebar").addClass("toggled");
       $('.sidebar .collapse').collapse('hide');
     };
   });
+  
+  if (1*$(window).width() < 1200) {
+    $(".sidebar").addClass("toggled");
+  };
+  
+  // Toggle the side navigation when window is resized below 768px
+  if ($(window).width() < 768 && !$(".sidebar").hasClass("toggled")) {
+    $("body").addClass("sidebar-toggled");
+    $(".sidebar").addClass("toggled");
+    $('.sidebar .collapse').collapse('hide');
+  };
 
   // Prevent the content wrapper from scrolling when the fixed side navigation hovered over
   $('body.fixed-nav .sidebar').on('mousewheel DOMMouseScroll wheel', function(e) {
-    if ($(window).width() > 768) {
+    if ($(window).width() > 1200) {
       var e0 = e.originalEvent,
         delta = e0.wheelDelta || -e0.detail;
       this.scrollTop += (delta < 0 ? 1 : -1) * 30;

@@ -1,5 +1,8 @@
 package it.itdistribuzione.gilda.rest;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.HttpStatus;
@@ -15,6 +18,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import it.eg.sloth.framework.common.exception.FrameworkException;
 import it.eg.sloth.webdesktop.common.SessionManager;
 import it.eg.sloth.webdesktop.dto.WebDesktopDto;
 import it.eg.sloth.webdesktop.search.model.SimpleSuggestionList;
@@ -44,7 +48,7 @@ public class WebDesktopApi {
                           @ApiResponse(code = 200, message = "Ok", response = byte[].class)
   })
   @GetMapping(path = "/avatar", produces = MediaType.IMAGE_PNG_VALUE)
-  public ResponseEntity<byte[]> getAvatar(HttpServletRequest request) {
+  public ResponseEntity<byte[]> getAvatar(HttpServletRequest request) throws SQLException, FrameworkException, IOException {
     WebDesktopDto webDesktopDto = SessionManager.getWebDesktopDto(request);
 
     Sec_utentiRowBean utentiRowBean = new Sec_utentiRowBean(webDesktopDto.getUser().getId());
